@@ -1,0 +1,14 @@
+{
+    "carousel": [
+        {
+            "id": 1,
+            "name": "Vijay Singh",
+            "title": "CEO",
+            "linkdein": "https://www.linkedin.com/in/vijay-singh-1b1b1b1b1/",
+            "image": "https://www.w3schools.com/w3images/avatar2.png",
+            "work-exp": "10+ years",
+            "tech-exp": "10+ years",
+            "description": "7+ Years Data Science, Software Engineer | 1000+ Students | Corp & Universal: Deloitte; HCL"
+        }
+    ]
+}
