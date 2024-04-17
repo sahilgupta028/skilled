@@ -76,7 +76,8 @@ const config = {
   },
   plugins: [
     require("tailwindcss-animate"),
-    require('daisyui')
+    require('daisyui'),
+    require('@tailwindcss/forms'),
   ],
 } satisfies Config
 

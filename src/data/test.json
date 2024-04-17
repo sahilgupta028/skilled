@@ -1,0 +1,182 @@
+{
+    "courses": [
+        {
+            "id": 1,
+            "name": "Course 1",
+            "description": "This is course 1",
+            "instructor": "Vijay Singh",
+            "duration": "6 months",
+            "price": 10000,
+            "rating": 4.5,
+            "startDate": "2024-01-01",
+            "endDate": "2024-05-01",
+            "category": [
+                "Web Development"
+            ],
+            "image": "https://ik.imagekit.io/dx7x7qwlt/Live/Data_Analytics?updatedAt=1712467489247",
+            "link": "/api/courses/ds1"
+        },
+        {
+            "id": 2,
+            "name": "Course 2",
+            "description": "This is course 2",
+            "instructor": "Rahul Singh",
+            "duration": "3 months",
+            "price": 5000,
+            "rating": 4.0,
+            "startDate": "2024-01-01",
+            "endDate": "2024-03-01",
+            "category": [
+               
+                "Mobile Development"
+                
+            ],
+            "image": "https://ik.imagekit.io/dx7x7qwlt/Live/MySql_Python_with_PowerBI?updatedAt=1706618935941",
+            "link": "/api/courses/ds2"
+        },
+        {
+            "id": 3,
+            "name": "Course 3",
+            "description": "This is course 3",
+            "instructor": "Rajesh Singh",
+            "duration": "6 months",
+            "price": 15000,
+            "rating": 4.5,
+            "startDate": "2024-01-01",
+            "endDate": "2024-07-01",
+            "category": [
+                "Web Development",
+                "Data Analytics"
+               
+            ],
+            "image": "https://ik.imagekit.io/dx7x7qwlt/Live/MySql%20with%20Poer%20BI_2.webp?updatedAt=1701416263337",
+            "link": "/api/courses/ds3"
+        },
+        {
+            "id": 4,
+            "name": "Course 4",
+            "description": "This is course 4",
+            "instructor": "Vijay Singh",
+            "duration": "6 months",
+            "price": 10000,
+            "rating": 4.5,
+            "startDate": "2024-01-01",
+            "endDate": "2024-05-01",
+            "category": [
+                
+                "Software Development",
+                "Data Science"
+            ],
+            "image": "https://ik.imagekit.io/dx7x7qwlt/Live/Data_Analytics?updatedAt=1712467489247",
+            "link": "/api/courses/ds4"
+        },
+        {
+            "id": 5,
+            "name": "Course 5",
+            "description": "This is course 5",
+            "instructor": "Rahul Singh",
+            "duration": "3 months",
+            "price": 5000,
+            "rating": 4.0,
+            "startDate": "2024-01-01",
+            "endDate": "2024-03-01",
+            "category": [
+               
+                "Machine Learning"
+            ],
+            "image": "https://ik.imagekit.io/dx7x7qwlt/Live/python_bootcamp.webp?updatedAt=1691389760706",
+            "link": "/api/courses/ds5"
+        },
+        {
+            "id": 6,
+            "name": "Course 6",
+            "description": "This is course 6",
+            "instructor": "Rajesh Singh",
+            "duration": "6 months",
+            "price": 15000,
+            "rating": 4.5,
+            "startDate": "2024-01-01",
+            "endDate": "2024-07-01",
+            "category": [
+               
+                "Data Science"
+            ],
+            "image": "https://ik.imagekit.io/dx7x7qwlt/Live/Data_Analytics?updatedAt=1712467489247",
+            "link": "/api/courses/ds6"
+        },
+        {
+            "id": 7,
+            "name": "Course 7",
+            "description": "This is course 7",
+            "instructor": "Vijay Singh",
+            "duration": "6 months",
+            "price": 10000,
+            "rating": 4.5,
+            "startDate": "2024-01-01",
+            "endDate": "2024-05-01",
+            "category": [
+               
+                "Data Analytics"
+              
+            ],
+            "image": "https://ik.imagekit.io/dx7x7qwlt/Live/MySQL_bootcamp.webp?updatedAt=1691389760047",
+            "link": "/api/courses/ds7"
+        },
+        {
+            "id": 8,
+            "name": "Course 8",
+            "description": "This is course 8",
+            "instructor": "Rahul Singh",
+            "duration": "3 months",
+            "price": 5000,
+            "rating": 4.0,
+            "startDate": "2024-01-01",
+            "endDate": "2024-03-01",
+            "category": [
+                "Web Development",
+                "Mobile Development",
+                "Machine Learning"
+            ],
+            "image": "https://ik.imagekit.io/dx7x7qwlt/Live/django_bootcamp.webp?updatedAt=1691393968733",
+            "link": "/api/courses/ds8"
+        },
+        {
+            "id": 9,
+            "name": "Course 9",
+            "description": "This is course 9",
+            "instructor": "Rajesh Singh",
+            "duration": "6 months",
+            "price": 15000,
+            "rating": 4.5,
+            "startDate": "2024-01-01",
+            "endDate": "2024-07-01",
+            "category": [
+                "Web Development",
+                "Data Analytics",
+                "Software Development",
+                "Data Science"
+            ],
+            "image": "https://ik.imagekit.io/dx7x7qwlt/Live/Data_Analytics?updatedAt=1712467489247",
+            "link": "/api/courses/ds9"
+        },
+        {
+            "id": 10,
+            "name": "Course 10",
+            "description": "This is course 10",
+            "instructor": "Vijay Singh",
+            "duration": "6 months",
+            "price": 10000,
+            "rating": 4.5,
+            "startDate": "2024-01-01",
+            "endDate": "2024-05-01",
+            "category": [
+                "Web Development",
+                "Data Analytics",
+                "Software Development",
+                "Data Science"
+            ],
+            "image": "https://ik.imagekit.io/dx7x7qwlt/Live/Data_Analytics?updatedAt=1712467489247",
+            "link": "/api/courses/ds10"
+        }
+    ]
+}
