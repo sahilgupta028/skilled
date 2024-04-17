@@ -6,6 +6,8 @@ import TabFilter from "@/components/Tab";
 import Image from "next/image";
 import { courses } from '../data/test.json'; 
 import Test from "@/components/Test";
+import { Navbar2 } from "@/components/Nav/Navbar2";
+
 
 
 export default function Home() {
@@ -13,7 +15,9 @@ export default function Home() {
   
   return (
     <main className="w-full ">
-      <TabSearch courses={courses}/>
+      <Navbar2/>
+      
+      {/* <TabSearch courses={courses}/> */}
     </main>
   );
 }
