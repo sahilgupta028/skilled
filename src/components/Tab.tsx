@@ -32,6 +32,7 @@ const TabFilter: React.FC<{ courses: Course[] }> = ({ courses }) => {
       return true; // Show all courses for 'All' tab
     });
    
+    
     return (
       <div className="tab-filter">
         <div className="tabs">

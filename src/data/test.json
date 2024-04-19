@@ -177,6 +177,44 @@
             ],
             "image": "https://ik.imagekit.io/dx7x7qwlt/Live/Data_Analytics?updatedAt=1712467489247",
             "link": "/api/courses/ds10"
+        },
+        {
+            "id": 11,
+            "name": "Course 11",
+            "description": "This is course 11",
+            "instructor": "Rahul Singh",
+            "duration": "3 months",
+            "price": 5000,
+            "rating": 4.0,
+            "startDate": "2024-11-01",
+            "endDate": "2025-03-01",
+            "category": [
+                "Web Development",
+                "Data Analytics",
+                "Software Development",
+                "Data Science"
+            ],
+            "image": "https://ik.imagekit.io/dx7x7qwlt/Live/Data_Analytics?updatedAt=1712467489247",
+            "link": "/api/courses/ds11"
+        },
+        {
+            "id": 12,
+            "name": "Course 12",
+            "description": "This is course 12",
+            "instructor": "Rajesh Singh",
+            "duration": "6 months",
+            "price": 15000,
+            "rating": 4.5,
+            "startDate": "2024-07-01",
+            "endDate": "2024-12-01",
+            "category": [
+                "Web Development",
+                "Data Analytics",
+                "Software Development",
+                "Data Science"
+            ],
+            "image": "https://ik.imagekit.io/dx7x7qwlt/Live/Data_Analytics?updatedAt=1712467489247",
+            "link": "/api/courses/ds12"
         }
     ]
 }
