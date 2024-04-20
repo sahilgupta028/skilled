@@ -1,28 +1,30 @@
 "use client";
 
-import Navbar from "@/components/Nav/Navbar";
-import TabSearch from "@/components/Search";
-import TabFilter from "@/components/Tab";
-import Image from "next/image";
+import HeroSection from '@/components/HeroSection';
+import Navbar from '@/components/Nav/Navbar';
+import Navbar2 from '@/components/Nav/Navbar2';
+import Filter from '@/components/Search';
+import SignIn from '@/components/auth/SignIn'
+import { Image } from 'lucide-react';
+import React from 'react'
 import { courses } from '../data/test.json'; 
-import Test from "@/components/Test";
-import { Navbar2 } from "@/components/Nav/Navbar2";
-import Footer from "@/components/Footer";
-import Mentor from "@/components/Mentor";
 
 
-
-export default function Home() {
-
-  
+function Home() {
   return (
-    <main className="w-full ">
-     
-      {/* <TabSearch data={courses}/> */}
+    <>
+    {/* <Navbar2/> */}
+    {/* <SignIn/> */}
+    {/* <Payment/> */}
 
-      {/* <Footer/> */}
 
-      <Mentor/>
-    </main>
-  );
+
+    <Filter data={courses}/>
+  
+    
+    {/* <HeroSection/> */}
+    </>
+  )
 }
+
+export default Home

@@ -2,8 +2,9 @@
 const nextConfig = {
     images: {
         domains: [
-            'cdn.sanity.io', 'pwskills.com', 'skilledup.tech', 
-            'ik.imagekit.io', 'images.unsplash.com', 'res.cloudinary.com', 'cdn1.iconfinder.com'
+             'www.studentresearchfoundation.org', 'cdn.sanity.io', 'skilledup.tech', 
+            'ik.imagekit.io', 
+            'cdn1.iconfinder.com', 'cdn-icons-png.flaticon.com', 'cdn.iconscout.com'
         ],
     }
 };
