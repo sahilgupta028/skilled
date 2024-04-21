@@ -25,16 +25,16 @@ function Mentor() {
             Meet Your Mentors
         </h1>
 
-        <div className='flex flex-wrap items-center justify-center'>
+        <div className='flex flex-wrap items-center justify-center py-7'>
             {mentorList.map((mentor, index) => (
-                <div key={index} className='relative bg-white m-2 p-0 rounded-2xl overflow-hidden'>
+                <div key={index} className='relative bg-white m-2  rounded-2xl overflow-hidden' >
                 <div className='group'>
                   <Image
                     alt='Loading Image...'
                     src={mentor.imageUrl}
                     width={300}
                     height={200}
-                    className='rounded-2xl p-0 transition-opacity duration-300 group-hover:opacity-50'
+                    className='rounded-2xl p-0 transition-opacity duration-300 group-hover:opacity-20 hover:bg-gradient-to-r from-blue-500 via-blue-600  to-red-600  '
                   />
                   <div className='absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300'>
                     <div className='text-center'>
@@ -47,7 +47,7 @@ function Mentor() {
                           src='https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png'
                           width={40}
                           height={40}
-                            className='rounded-full p-1 mt-4'
+                            className='rounded-full p-8 mt-4'
                         />
                       </a>
                     </div>

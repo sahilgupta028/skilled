@@ -1,14 +1,104 @@
 {
     "carousel": [
+        
         {
-            "id": 1,
-            "name": "Vijay Singh",
-            "title": "CEO",
-            "linkdein": "https://www.linkedin.com/in/vijay-singh-1b1b1b1b1/",
-            "image": "https://www.w3schools.com/w3images/avatar2.png",
-            "work-exp": "10+ years",
-            "tech-exp": "10+ years",
-            "description": "7+ Years Data Science, Software Engineer | 1000+ Students | Corp & Universal: Deloitte; HCL"
+            "package": "10 LPA ",
+            "company": "Amazon",
+            "role": "Software Developer",
+            "linkedin": "https://www.linkedin.com/in/rohit-kumar-7b7b3b1b7/",
+            "image": "https://skilledup.s3.ap-south-1.amazonaws.com/images/review_profiles/puneet-mishra.jpg",
+            "name": "Rohit Kumar",
+            "description": "any description"
+        },
+        {
+            "package":"10LPA",
+            "image": "https://skilledup.s3.ap-south-1.amazonaws.com/images/review_profiles/puneet-mishra.jpg",
+            "name":"Puneet Mishra",
+            "description":"Enrolling in this data science program satisfies me. Notable: structured syllabus, course layout, 24/7 support expert trainers in domains.",
+            "role": "Senior Analyst",
+            "linkedin": "https://www.linkedin.com/in/puneet-mishra-4ab544258/",
+            "company":"OPTUM"
+        },
+        {
+            "package":"10LPA",
+            "image":"https://skilledup.s3.ap-south-1.amazonaws.com/images/review_profiles/puneet-mishra.jpg",
+            "name":"Dhananjai",
+            "description":"I had a fantastic learning experience with skilledup, successfully reaching my objective of securing a job as a result. Thanks skilledUp!",
+            "role": "Data Analyst",
+            "linkedin": "https://www.linkedin.com/in/dhananjai-percussionist/",
+            "company":"LUMEN SOLUTIONS"
+        },
+        {
+            "package":"10LPA",
+            "image": "https://skilledup.s3.ap-south-1.amazonaws.com/images/review_profiles/puneet-mishra.jpg",
+            "name":"Nikita Gupta",
+            "description":"Excited to complete a 6- month Data Analytics program. Gained clear insight for success in the Data field. Dedication and late nights have paid off.",
+            "role": "Tech Business Analyst",
+            "linkedin": "https://www.linkedin.com/in/nikita-gupta-b00299b6/",
+            "company":"DXC TECHNOLOGY"
+        },
+        {
+            "package":"10LPA",
+            "image": "https://skilledup.s3.ap-south-1.amazonaws.com/images/review_profiles/puneet-mishra.jpg",
+            "name":"Anusha Jha",
+            "description":"skilledUp learning journey resulted in a rewarding job upgrade, accompanied by a significant salary increase- an excellent experience!.",
+            "role": "Senior Operations Analyst",
+            "linkedin": "https://www.linkedin.com/in/anusha-jha-8567a9101/",
+            "company":"EASEBUZZ"
+        },
+        {
+            "package":"10LPA",
+            "image": "https://skilledup.s3.ap-south-1.amazonaws.com/images/review_profiles/puneet-mishra.jpg",
+            "name":"Vaibhav Rawat",
+            "description":"skilledUp excels in Business Analytics training, hands-on projects. Self-learning content crucial insights, inriching the learning journey!",
+            "role": "Junior Manager",
+            "linkedin": "https://www.linkedin.com/in/vaibhav-rawat-6107a81b1/",
+            "company":"PAYTM"
+        },
+        {
+            "package":"10LPA",
+            "image": "https://skilledup.s3.ap-south-1.amazonaws.com/images/review_profiles/puneet-mishra.jpg",
+            "name":"Amit Kumar",
+            "description":"SkilledUp course offered exceptional learning. extensive support, and comprehensive content. It was truly an outstanding experience!",
+            "role": "Assistant Manager",
+            "linkedin": "https://www.linkedin.com/in/amit-kumar-9a482989/",
+            "company":"EXL"
+        },
+        {
+            "package":"10LPA",
+            "image": "https://skilledup.s3.ap-south-1.amazonaws.com/images/review_profiles/puneet-mishra.jpg",
+            "name":"Arvind Singh",
+            "description":"SkilledUp support team excels in providing responsive assistance and the trainers expertly deliver excellent learning experience.",
+            "role": "Software Development Engineer",
+            "linkedin": "https://www.linkedin.com/in/arvind-singh-442718116/",
+            "company":"DXC TECHNOLOGY"
+        },
+        {
+            "package":"10LPA",
+            "image": "https://skilledup.s3.ap-south-1.amazonaws.com/images/review_profiles/puneet-mishra.jpg",
+            "name":"Harish C Patel",
+            "description":"SkilledUp sparked my learning passion. Personalized guidance and engaging curriculum made my educational journey exceptional.",
+            "role": "Data Analyst",
+            "linkedin": "https://www.linkedin.com/in/harish-c-patel-58ab13230/",
+            "company":"Accenture"
+        },
+        {
+            "package":"10LPA",
+            "image": "https://skilledup.s3.ap-south-1.amazonaws.com/images/review_profiles/puneet-mishra.jpg",
+            "name":"Sharukh Ali",
+            "description":"Thanks to skilledup!, I had an amazing learning experience with Skilledup, which ultimately helped me attain my goal of landing a job successfully.",
+            "role": "Risk Analyst",
+            "linkedin": "https://www.linkedin.com/in/sharukh-ali-4755b2139/",
+            "company":"One97 Communication"
+        },
+        {
+            "package":"10LPA",
+            "image":"https://skilledup.s3.ap-south-1.amazonaws.com/images/review_profiles/puneet-mishra.jpg",
+            "name":"Yogita Mehra",
+            "description":"Engaging, organized course, excellent notes. Exceptional teaching simplifies complex concepts, recommend Skilledup coursest",
+            "role": "Growth Manager",
+            "linkedin": "https://www.linkedin.com/in/yogita-mehra-380a3875/",
+            "company":"PAYTM"
         }
     ]
 }

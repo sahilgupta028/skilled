@@ -32,9 +32,9 @@ const SignIn = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 rounded-2xl p-5 ">
+    <div className="flex flex-col items-center justify-center ">
 
-      <div className="bg-white rounded-xl p-7">
+      <div className="bg-white">
 
       <h1 className="text-4xl font-bold text-blue-700 mb-5 bg-blue-200 w-80 text-center py-3 rounded-s-md">
         Sign In Here
@@ -117,12 +117,7 @@ const SignIn = () => {
         </div>
       </form>
 
-      <div className="flex my-4">
-        <p>Not Yet Registered?&nbsp;&nbsp;</p>
-        <Link className="text-blue-600 text-decoration-line: underline" href="/sign-up">
-          Sign Up
-        </Link>
-      </div>
+      
       </div>
       
     </div>

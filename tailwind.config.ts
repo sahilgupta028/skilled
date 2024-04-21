@@ -72,12 +72,25 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      backgroundImage: {
+        "hero-pattern": "url('/src/components/assets/bg.jpeg')",
+        
+      },
+      fontFamily: {
+          'sans': ['ui-sans-serif', 'system-ui'],
+          'serif': ['ui-serif', 'Georgia'],
+          'mono': ['ui-monospace', 'SFMono-Regular'],
+          'display': ['Oswald'],
+          'body': ['Open Sans'],
+          'heading': ['Poppins'],
+      },
     },
   },
   plugins: [
     require("tailwindcss-animate"),
     require('daisyui'),
     require('@tailwindcss/forms'),
+    require('tailwind-scrollbar'),
   ],
 } satisfies Config
 
