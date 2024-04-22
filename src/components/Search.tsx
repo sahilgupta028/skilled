@@ -29,7 +29,7 @@ const Filter: React.FC<FilterProps> = ({ data }) => {
 
     useEffect(() => {
         filterData();
-    }, [categoryFilter, timingFilter]);
+    });
 
     const filterData = () => {
         let filteredCourses = data;
@@ -61,12 +61,16 @@ const Filter: React.FC<FilterProps> = ({ data }) => {
 
       <div className=''>
 
+      <div className='text-center p-4 bg-red-100 rounded-lg m-2'>
+        <h1 className='bg-gradient-to-r from-blue-500 via-blue-600  to-red-600 inline-block text-transparent bg-clip-text text-4xl font-bold font-sans hover:font-extrabold'
+        >Explore Courses</h1>
+      </div>
         <div className=''>
 
-        <div className="flex gap-2">
-            <div className="w-60 p-4">
-                <h3 className="font-bold mb-2 text-2xl text-blue-600 bg-blue-200 w-full p-2">Category:</h3>
-                <div className="space-y-2">
+        <div className="flex gap-2 bg-white">
+            <div className="w-60 p-4 ">
+                <h3 className="font-bold mb-2 text-2xl text-blue-600 bg-blue-200 w-full p-2 rounded-md">Category</h3>
+                <div className="space-y-2 ">
                     <button onClick={() => handleCategoryChange('All')} className={`w-full py-2 px-4 rounded-lg ${categoryFilter === 'All' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}>All</button>
                     <button onClick={() => handleCategoryChange('Web Development')} className={`w-full py-2 px-4 rounded-lg ${categoryFilter === 'Web Development' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}>Web Development</button>
                     <button onClick={() => handleCategoryChange('Data Analytics')} className={`w-full py-2 px-4 rounded-lg ${categoryFilter === 'Data Analytics' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}>Data Analytics</button>
@@ -75,22 +79,22 @@ const Filter: React.FC<FilterProps> = ({ data }) => {
                 </div>
             </div>
 
-            <div className='w-full '>
+            <div className='w-full bg-white'>
 
             <div className="w-full p-4 ">
-                <h3 className="font-bold mb-2 text-blue-600 text-2xl w-full bg-blue-200 p-2 p">Timing:</h3>
+                <h3 className="font-bold mb-2 text-blue-600 text-3xl w-full bg-blue-200 p-2 p text-center rounded-md">Timing</h3>
                 <div className="flex space-x-4 justify-start ">
-                    <button onClick={() => handleTimingChange('All')} className={`py-2 px-4 rounded-lg ${timingFilter === 'All' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}>All</button>
+                    <button onClick={() => handleTimingChange('All')} className={`py-2 px-4 rounded-lg  ${timingFilter === 'All' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}>All</button>
                     <button onClick={() => handleTimingChange('Live')} className={`py-2 px-4 rounded-lg ${timingFilter === 'Live' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}>Live</button>
                     <button onClick={() => handleTimingChange('Upcoming')} className={`py-2 px-4 rounded-lg ${timingFilter === 'Upcoming' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}>Upcoming</button>
-                    <button onClick={() => handleTimingChange('Recorded')} className={`py-2 px-4 rounded-lg ${timingFilter === 'Recorded' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}>Recorded</button>
+                    <button onClick={() => handleTimingChange('Recorded')} className={`py-2 px-4 rounded-lg ${timingFilter === 'Recorded' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}>Bootcamps</button>
                 </div>
             </div>
 
             <div className='scrollbar-thumb-sky-700 scrollbar-track-sky-300'>
-              <div className='scrollbar-thin bg-white h-96 overflow-y-scroll'>
-              <div className="w-full p-4 grid grid-cols-3 sm:grid-cols-1">
-                <ul className='grid grid-cols-3 p-4 gap-6 mt-0 pt-0'>
+              <div className='scrollbar-thin bg-white  max-h-lvh min-h-96 overflow-y-scroll'>
+              <div className="w-full p-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 bg-gray-200">
+                <ul className='grid grid-cols-3 p-4 gap-6 mt-0 pt-0 '>
                     {filteredData.map(course => (
                         <Card key={course.id} className='rounded-2xl bg-white max-w-sm ' >
                         <CardHeader className='w-full p-0 rounded-2xl' >

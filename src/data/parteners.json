@@ -1,0 +1,32 @@
+{
+    "parteners": [
+        {
+            "name": "Amazon",
+            "image": "https://press.aboutamazon.in/static-files/3ca754e0-9176-4d89-8174-056267008479"
+        },
+       {
+            "name": "Flipkart",
+            "image": "https://etimg.etb2bimg.com/photo/102797309.cms"
+        },
+        {
+            "name": "Myntra",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY85vVHdDMnDVaWS2dbnc77vXb98rChIZsix8EIB16fg&s"
+        },
+       
+        {
+            "name": "Paytm",
+            "image": "https://m.economictimes.com/thumb/msid-107312198,width-1200,height-900,resizemode-4,imgsize-6574/paytm-etonline.jpg"
+        },
+       
+        {
+            "name": "Google",
+            "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/640px-Google_2015_logo.svg.png"
+        },
+        {
+            "name": "Apple",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOQmnV_JcXPjgIId3UfkUgBlEkvaZPlcTtqD0qpWXvQA&s"
+        }
+       
+       
+    ]
+}

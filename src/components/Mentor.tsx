@@ -21,7 +21,7 @@ function Mentor() {
 
   return (
     <div className='w-full bg-blue-300 p-1'>
-        <h1 className='text-4xl font-bold text-white hover:text-blue-800 text-center w-full bg-blue-700 rounded-3xl pt-3 pb-3 mb-4'>
+        <h1 className='text-4xl font-bold text-white hover:text-red-600 hover:bg-red-100 text-center w-full bg-blue-700 rounded-3xl pt-3 pb-3 mb-4'>
             Meet Your Mentors
         </h1>
 

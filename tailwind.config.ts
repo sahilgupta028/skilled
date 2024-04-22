@@ -74,7 +74,7 @@ const config = {
       },
       backgroundImage: {
         "hero-pattern": "url('/src/components/assets/bg.jpeg')",
-        
+        "cover": "url('/public/bg.jpeg')",
       },
       fontFamily: {
           'sans': ['ui-sans-serif', 'system-ui'],
@@ -88,9 +88,9 @@ const config = {
   },
   plugins: [
     require("tailwindcss-animate"),
-    require('daisyui'),
     require('@tailwindcss/forms'),
     require('tailwind-scrollbar'),
+    
   ],
 } satisfies Config
 

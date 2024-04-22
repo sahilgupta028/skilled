@@ -10,15 +10,14 @@ function HeroSection() {
     <div>
       <div className='bg-blue-100 flex flex-col justify-center items-center'>
 
-        <div className='flex justify-around p-5  pb-20 w-full  bg-hero-pattern'>
+        <div className='flex justify-around m-5 bg-hero-pattern over bg-white rounded-3xl '>
 
-
-        <div className=" bg-cover  gap-4 justify-center rounded-l-3xl bg-white p-7">
+        <div className="justify-center rounded-l-3xl bg-white p-7 ">
         <h1 className='bg-gradient-to-r from-blue-500 via-blue-600  to-red-600 inline-block text-transparent bg-clip-text text-4xl font-bold font-sans'>
             Skilled Bano skilledUp se
         </h1>
         <br />
-        <p className='w-70 pl-1 p-6 from-accent-foreground font-bold'>
+        <p className=' pl-1 p-6 from-accent-foreground font-bold '>
           SkilledUp offers a range of classes designed to help you learn 
           <br />
           new skills at your own pace. Get access to expert instruction and
@@ -55,23 +54,27 @@ function HeroSection() {
           </select>
         </div>
 
-        <div className='mt-6'>
-          <Button className='bg-gradient-to-r from-blue-500 via-blue-600  to-red-600 w-1/3'>
+        <div className='mt-6 gap-6 flex justify-start items-center'>
+          <Button className='bg-gradient-to-r from-blue-500 via-blue-600  to-red-600 w-1/4'>
             Get Started
-            </Button>
+          </Button>
+          <p>or</p>
+          <Button className='bg-gradient-to-r from-blue-500 via-blue-600  to-red-600 w-1/4'>
+            Explore Courses
+          </Button>
         </div>
 
       
-      </div>
-          
+      </div>    
 
-         <Image
-         src="https://www.studentresearchfoundation.org/wp-content/uploads/2020/04/Learn-Coding-and-Other-Computer-Skills-for-Free-Online-1030x687.jpg"
-         alt='Loading image'
-         width={700}
-         height={700}
-        className='rounded-r-3xl'
-         />
+
+        <Image
+          src="/front.jpeg"
+          alt='Loading image'
+          width={570}
+          height={300}
+          className='rounded-3xl bg-clip-border '
+        />
         
         </div>
         <div className='items-center justify-center flex bg-gradient-to-r from-blue-500 from-10% via-blue-600 via-30% to-red-500 to-90% p-1 w-5/6 rounded-3xl mb-3'>

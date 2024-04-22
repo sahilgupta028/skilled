@@ -88,3 +88,18 @@
 .animate-typewriter {
   animation: typewriter 1s steps(40) 1s forwards;
 }
+
+
+@keyframes translate {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-partner-card {
+  animation: translate 20s linear infinite;
+}
+

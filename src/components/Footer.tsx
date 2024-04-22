@@ -64,11 +64,11 @@ const Footer = () => {
           
           <div>
             <h2 className="text-blue-400 text-3xl font-semibold mb-4 border-b-2 p-2 border-blue-500">
-              Courses
+              Products
             </h2>
             <div className='text-xl grid grid-cols-3 grid-rows-3 gap-3'>
               <Link href="/courses">
-                <h3 className='hover:font-bold text-xl hover:text-blue-400'>Products</h3>
+                <h3 className='hover:font-bold text-xl hover:text-blue-400'>Courses</h3>
               </Link>
               <Link href="/jobDekho">
                 <h3 className='hover:font-bold text-xl hover:text-blue-400'>jobDekho</h3>
