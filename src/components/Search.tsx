@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader } from './ui/card';
 import Image from 'next/image';
 import { Button } from './ui/button';
@@ -23,13 +23,37 @@ interface FilterProps {
 }
 
 const Filter: React.FC<FilterProps> = ({ data }) => {
+    const scrollRef = useRef<HTMLDivElement>(null);
     const [filteredData, setFilteredData] = useState<Course[]>([]);
     const [categoryFilter, setCategoryFilter] = useState<string>('All');
     const [timingFilter, setTimingFilter] = useState<string>('All');
 
     useEffect(() => {
+
         filterData();
+
+        const handleScroll = () => {
+          const scrollElement = scrollRef.current;
+          if (scrollElement) {
+            const rect = scrollElement.getBoundingClientRect();
+            const bottomOffset = window.innerHeight - rect.bottom;
+            if (bottomOffset >= 0) {
+              scrollElement.classList.remove('sticky', 'top-0');
+              scrollElement.classList.add('absolute', 'bottom-0');
+            } else {
+              scrollElement.classList.remove('absolute', 'bottom-0');
+              scrollElement.classList.add('sticky', 'top-0');
+            }
+          }
+        };
+    
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
     });
+
+    
 
     const filterData = () => {
         let filteredCourses = data;
@@ -59,7 +83,7 @@ const Filter: React.FC<FilterProps> = ({ data }) => {
 
     return (
 
-      <div className=''>
+      <div className='' >
 
       <div className='text-center p-4 bg-red-100 rounded-lg m-2'>
         <h1 className='bg-gradient-to-r from-blue-500 via-blue-600  to-red-600 inline-block text-transparent bg-clip-text text-4xl font-bold font-sans hover:font-extrabold'
@@ -93,7 +117,7 @@ const Filter: React.FC<FilterProps> = ({ data }) => {
 
             <div className='scrollbar-thumb-sky-700 scrollbar-track-sky-300'>
               <div className='scrollbar-thin bg-white  max-h-lvh min-h-96 overflow-y-scroll'>
-              <div className="w-full p-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 bg-gray-200">
+              <div className="w-full p-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 bg-blue-200">
                 <ul className='grid grid-cols-3 p-4 gap-6 mt-0 pt-0 '>
                     {filteredData.map(course => (
                         <Card key={course.id} className='rounded-2xl bg-white max-w-sm ' >
@@ -155,7 +179,7 @@ const Filter: React.FC<FilterProps> = ({ data }) => {
                 
                          </div>
                          <div className='flex flex-row justify-between items-center'>
-                            <Button className='bg-transparent text-blue hover:text-white hover:bg-blue-500  px-8 border-blue-600 border-solid border-2'>
+                            <Button className='bg-transparent text-blue hover:text-white hover:bg-blue-500  px-8 py-1 border-blue-600 border-solid border-2 rounded-md font-sm'>
                               Explore
                            </Button>
                            <Button className='bg-gradient-to-r from-indigo-500  to-blue-500 text-white px-6'>

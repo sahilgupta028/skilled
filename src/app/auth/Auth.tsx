@@ -18,9 +18,8 @@ const Auth = () => {
   };
 
   return (
-    <div className='flex flex-col items-center justify-center bg-indigo-200 py-11'>  
+    <div className='flex flex-col items-center justify-center bg-blue-200 py-11'>  
         <div className='p-8 bg-white rounded-2xl h-fit flex flex-col items-center justify-center'>
-
             <div>
                 {isSignIn ? <SignIn /> : <SignUp />}
             </div>

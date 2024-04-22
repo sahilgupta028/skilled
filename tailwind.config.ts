@@ -7,6 +7,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
 	],
   prefix: "",
   theme: {
@@ -90,7 +91,7 @@ const config = {
     require("tailwindcss-animate"),
     require('@tailwindcss/forms'),
     require('tailwind-scrollbar'),
-    
+    require("@nextui-org/react"),
   ],
 } satisfies Config
 

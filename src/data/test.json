@@ -14,7 +14,7 @@
                 "Web Development"
             ],
             "image": "https://ik.imagekit.io/dx7x7qwlt/Live/Data%20Science_Program%20?updatedAt=1713590188082",
-            "link": "/api/courses/ds1"
+            "link": "/courses/ds1"
         },
         {
             "id": 2,
@@ -32,7 +32,7 @@
                 
             ],
             "image": "https://ik.imagekit.io/dx7x7qwlt/Live/Data%20Analytics_Program?updatedAt=1713590383661",
-            "link": "/api/courses/ds2"
+            "link": "/courses/ds2"
         },
         {
             "id": 3,
@@ -50,7 +50,7 @@
                
             ],
             "image": "https://ik.imagekit.io/dx7x7qwlt/Live/Business%20Analytics_Program%20?updatedAt=1713591313410",
-            "link": "/api/courses/ds3"
+            "link": "/courses/ds3"
         },
         {
             "id": 4,
@@ -68,7 +68,7 @@
                 "Data Science"
             ],
             "image": "https://ik.imagekit.io/dx7x7qwlt/Live/mysql_powerbi.webp?updatedAt=1691585220868",
-            "link": "/api/courses/ds4"
+            "link": "/courses/ds4"
         },
         {
             "id": 5,
@@ -85,7 +85,7 @@
                 "Machine Learning"
             ],
             "image": "https://ik.imagekit.io/dx7x7qwlt/Live/python_bootcamp.webp?updatedAt=1691389760706",
-            "link": "/api/courses/ds5"
+            "link": "/courses/ds5"
         },
         {
             "id": 6,
@@ -102,7 +102,7 @@
                 "Data Science"
             ],
             "image": "https://ik.imagekit.io/dx7x7qwlt/Live/Data_Analytics?updatedAt=1712467489247",
-            "link": "/api/courses/ds6"
+            "link": "/courses/ds6"
         },
         {
             "id": 7,
@@ -120,7 +120,7 @@
               
             ],
             "image": "https://ik.imagekit.io/dx7x7qwlt/Live/MySQL_bootcamp.webp?updatedAt=1691389760047",
-            "link": "/api/courses/ds7"
+            "link": "/courses/ds7"
         },
         {
             "id": 8,
@@ -138,7 +138,7 @@
                 "Machine Learning"
             ],
             "image": "https://ik.imagekit.io/dx7x7qwlt/Live/django_bootcamp.webp?updatedAt=1691393968733",
-            "link": "/api/courses/ds8"
+            "link": "/courses/ds8"
         },
         {
             "id": 9,
@@ -157,7 +157,7 @@
                 "Data Science"
             ],
             "image": "https://ik.imagekit.io/dx7x7qwlt/Live/Data_Analytics?updatedAt=1712467489247",
-            "link": "/api/courses/ds9"
+            "link": "/courses/ds9"
         },
         {
             "id": 10,
@@ -214,7 +214,7 @@
                 "Data Science"
             ],
             "image": "https://ik.imagekit.io/dx7x7qwlt/Live/Data_Analytics?updatedAt=1712467489247",
-            "link": "/api/courses/ds12"
+            "link": "/courses/ds12"
         }
     ]
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
 
-
 export default function App() {
   const [selectedKeys, setSelectedKeys] = React.useState(new Set(["text"]));
 
@@ -15,7 +14,7 @@ export default function App() {
       <DropdownTrigger>
         <Button 
           variant="bordered" 
-          className="capitalize"
+          className="capitalize bg-blue-500 text-white"
         >
           {selectedValue}
         </Button>
@@ -27,7 +26,8 @@ export default function App() {
         disallowEmptySelection
         selectionMode="multiple"
         selectedKeys={selectedKeys}
-        // onSelectionChange={setSelectedKeys}
+        //onSelectionChange={setSelectedKeys}
+        className="bg-blue-500 text-white flex-col gap-4"
       >
         <DropdownItem key="text">Text</DropdownItem>
         <DropdownItem key="number">Number</DropdownItem>

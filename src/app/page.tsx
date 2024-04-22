@@ -1,26 +1,27 @@
 "use client";
 
 import HeroSection from '@/components/HeroSection';
-import Navbar2 from '@/components/Nav/Navbar2';
+
 import Filter from '@/components/Search';
-import SignIn from '@/components/auth/SignIn'
 import React from 'react'
 import { courses } from '../data/test.json'; 
 import Mentor from '@/components/Mentor';
 import Footer from '@/components/Footer';
-import Navbar from '@/components/Nav/Navbar2';
-import Image from 'next/image';
 import Partners from '@/components/Partener';
 import Alumuni from '@/components/Carousel';
 import { Dropdown } from '@nextui-org/dropdown';
 import App from '@/components/Dropdown';
+import Test from '@/components/Test';
+import { Button } from '@nextui-org/react';
+import Nav from '@/components/Nav/Navbar';
 
 
 function Home() {
   return (
     <>
-    
-      <App/>
+
+      
+      {/* <App/> */}
       <HeroSection/>
       <Filter data={courses}/>
       <Partners/>
