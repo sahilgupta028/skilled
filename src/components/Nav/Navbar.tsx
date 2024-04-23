@@ -18,43 +18,41 @@ export default function Nav() {
   ];
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-blue-400">
+    <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-white">
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
         <NavbarBrand>
-          <h1 className="text-4xl font-bold text-white">skilledUp</h1>
+          <h1 className="text-4xl font-bold text-blue-500">skilledUp</h1>
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4 text-white" justify="start">
-        <NavbarItem>
+      <NavbarContent className="hidden sm:flex gap-4 text-blue-500" justify="start">
+        <NavbarItem className="hover:bg-blue-200 hover:text-blue-600 p-2 rounded-lg">
           <Link color="success" href="/">
             Home
           </Link>
         </NavbarItem>
-        <NavbarItem isActive>
+        <NavbarItem isActive className="hover:bg-blue-200 hover:text-blue-600 p-2 rounded-lg">
           <Link href="/courses" aria-current="page">
             Courses
           </Link>
         </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" href="/abhyas">
+        <NavbarItem className="hover:bg-blue-200 hover:text-blue-600 p-2 rounded-lg">
+          <Link color="foreground" href="/abhyas" >
             Abhyas
           </Link>
-        </NavbarItem>
-        <NavbarItem>
+        </NavbarItem >
+        <NavbarItem className="hover:bg-blue-200 hover:text-blue-600 p-2 rounded-lg">
           <Link color="foreground" href="/jobdekho">
             JobDekho
           </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="/auth">Login</Link>
-        </NavbarItem>
+        
         <NavbarItem>
           <Button as={Link} color="primary" href="/auth" variant="solid" className="rounded-lg bg-blue-700">
             Sign Up/Login

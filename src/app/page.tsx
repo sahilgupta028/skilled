@@ -21,13 +21,13 @@ function Home() {
     <>
 
       
-      {/* <App/> */}
+      
       <HeroSection/>
       <Filter data={courses}/>
       <Partners/>
       <Alumuni/>
       <Mentor/>
-      <Footer/>  
+     
     </>
   )
 }
