@@ -18,7 +18,7 @@ export default function Nav() {
   ];
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-white">
+    <Navbar onMenuOpenChange={setIsMenuOpen} className="bg-gradient-to-r from-blue-500 to-purple-500">
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
