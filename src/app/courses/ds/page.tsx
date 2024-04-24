@@ -1,15 +1,21 @@
+"use client"
+
 import Image from 'next/image'
 import React from 'react'
 import {Button, Chip} from "@nextui-org/react";
-import { PhoneCallIcon } from 'lucide-react';
+import { PhoneCallIcon, StarsIcon } from 'lucide-react';
 import { StarIcon } from '@heroicons/react/20/solid';
-
+import {Tabs, Tab, Card, CardBody, Switch} from "@nextui-org/react";
 
 function DS() {
+
+    const [isVertical, setIsVertical] = React.useState(true);
+
+
   return (
     <div>
 
-        <div className='flex flex-col justify-center items-center mt-8 '>
+        <div className='flex flex-col justify-center items-center my-8 bg-gray-100'>
 
         <div className='flex justify-around bg-blue-100 max-w-0.7 max-w-6xl rounded-2xl min-h-[400px]'>
 
@@ -79,6 +85,78 @@ function DS() {
 
         </div>
 
+           
+        </div>
+
+        <div className='p-4 bg-gray-100 '>
+            <p className='bg-gradient-to-r from-blue-500 via-blue-600  to-red-600 inline-block text-transparent bg-clip-text text-2xl font-bold font-sans'>
+                Key Highlights Of LJMUs MS In Data Science
+            </p>
+            <h1 className='text-4xl font-bold text-blue-600 font-body'>
+                What does this course have to offer?
+            </h1>
+
+            <br />
+        <div>
+        <div className="flex flex-col px-4">
+            <h2></h2>
+      {/* <Switch className="mb-4" isSelected={isVertical} onValueChange={setIsVertical}>
+        Vertical
+      </Switch> */}
+      <div className="flex w-full flex-col">
+        <Tabs aria-label="Options" isVertical={true} >
+          <Tab key="highlights" title="Key Highlights">
+            <Card>
+              <CardBody>
+                <div>
+                    <ul>
+                        <li>Complimentary Python Programming Bootcamp</li>
+                        <li>500+ Hours of Learning</li>
+                    </ul>
+                </div>
+              </CardBody>
+            </Card>  
+          </Tab>
+          <Tab key="specialisation" title="Specialisation">
+            <Card>
+              <CardBody>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              </CardBody>
+            </Card>  
+          </Tab>
+          <Tab key="assistance" title="Career Assistance">
+            <Card>
+              <CardBody>
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </CardBody>
+            </Card>  
+          </Tab>
+          <Tab key="oppurtunities" title="Job Opputunities">
+            <Card>
+                <CardBody>
+                    skilled Oppurtunities
+                    <ul className='ml-3 p-1 text-blue-700 font-mono'>
+                        <li className='flex gap-4'>
+                            <StarsIcon/>
+                            skilledUp Elevate: Virtual hiring drive giving you the opportunity to interview with upGrads 300+ hiring partners
+                        </li>
+                        <li>
+                            Gain exclusive access to upGrads Job Opportunities portal which has 100+ openings from upGrads hiring partners at any given time.
+                        </li>
+                        <li>
+                            Be the first to know vacancies to gain an edge in the application process
+                        </li>
+                        <li>
+                            Connect with companies that are the best match for you
+                        </li>
+                    </ul>
+                </CardBody>
+            </Card>
+          </Tab>
+        </Tabs>
+      </div>
+    </div>
+        </div>
         </div>
 
     </div>
