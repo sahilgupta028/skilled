@@ -6,6 +6,8 @@ import {Button, Chip} from "@nextui-org/react";
 import { PhoneCallIcon, StarsIcon } from 'lucide-react';
 import { StarIcon } from '@heroicons/react/20/solid';
 import {Tabs, Tab, Card, CardBody, Switch} from "@nextui-org/react";
+import {Accordion, AccordionItem} from "@nextui-org/react";
+import { Syllabus } from './components/Syallabus';
 
 function DS() {
 
@@ -88,24 +90,34 @@ function DS() {
            
         </div>
 
-        <div className='p-4 bg-gray-100 '>
+        <div className='p-4 bg-gray-100 px-5'>
+
+          <div className='mx-5'>
+            <h1 className='bg-gradient-to-r from-blue-500 via-blue-600  to-red-600 inline-block text-transparent bg-clip-text text-2xl font-bold font-sans'>
+                About The Course
+            </h1>
+            <p className='bg-blue-100 text-blue-600 p-3 text-2xl font-bold rounded-md'>
+                Data Science is a field that uses scientific methods, processes, algorithms, and systems to extract knowledge and insights from structured and unstructured data. It employs techniques and theories drawn from many fields within the context of mathematics, statistics, computer science, domain knowledge, and information science.
+            </p>
+
+            <br />
             <p className='bg-gradient-to-r from-blue-500 via-blue-600  to-red-600 inline-block text-transparent bg-clip-text text-2xl font-bold font-sans'>
                 Key Highlights Of LJMUs MS In Data Science
             </p>
-            <h1 className='text-4xl font-bold text-blue-600 font-body'>
+            
+            <h1 className='text-4xl font-bold text-blue-600 font-body bg-blue-100 w-fit p-2 rounded-md mt-3'>
                 What does this course have to offer?
             </h1>
+          </div>
+            
 
             <br />
         <div>
         <div className="flex flex-col px-4">
-            <h2></h2>
-      {/* <Switch className="mb-4" isSelected={isVertical} onValueChange={setIsVertical}>
-        Vertical
-      </Switch> */}
+     
       <div className="flex w-full flex-col">
-        <Tabs aria-label="Options" isVertical={true} >
-          <Tab key="highlights" title="Key Highlights">
+        <Tabs aria-label="Options" isVertical={true} className='text-xl font-body font-bold  text-blue-700 border-2 border-blue-700  p-3 rounded-lg' >
+          <Tab key="highlights" title="Key Highlights" className='h-12'>
             <Card>
               <CardBody>
                 <div>
@@ -117,7 +129,7 @@ function DS() {
               </CardBody>
             </Card>  
           </Tab>
-          <Tab key="specialisation" title="Specialisation">
+          <Tab key="specialisation" title="Specialisation" className=''>
             <Card>
               <CardBody>
                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -154,6 +166,34 @@ function DS() {
             </Card>
           </Tab>
         </Tabs>
+      </div>
+
+      <br />
+
+      <div>
+        <Syllabus/>
+      </div>
+
+      <br />
+      <div className='items-start justify-start flex-col flex '>
+
+      <div className='bg-blue-100 text-blue-600 p-3 text-3xl font-bold rounded-md'> 
+          <h1>FAQs regardind Data Science Courses</h1>
+      </div>
+        
+        <br />
+
+      <Accordion className='w-1/2'>
+      <AccordionItem key="1" aria-label="Accordion 1" title="Question 1" className='hover:bg-blue-300 px-4 rounded-md'>
+       <h1>Test</h1> 
+      </AccordionItem>
+      <AccordionItem key="2" aria-label="Accordion 2" title="Question 2" className='hover:bg-blue-300 px-4 rounded-md'>
+       <h1>Test 2</h1>
+      </AccordionItem>
+      <AccordionItem key="3" aria-label="Accordion 3" title="Question 3" className='hover:bg-blue-300 px-4 rounded-md'>
+        <h1>Test 3</h1>
+      </AccordionItem>
+    </Accordion>
       </div>
     </div>
         </div>

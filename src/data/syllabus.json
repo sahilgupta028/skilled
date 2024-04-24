@@ -1,0 +1,99 @@
+{
+    "syllabus": [
+        {
+            "title": "Introduction",
+            "description": "Introduction to the course and the instructor.",
+            "credits": "1",
+            "time": "1 week",
+            "subchapter": [
+                "Welcome",
+                "About the Instructor"
+                
+            ]
+        },
+        {
+            "title": "The Basics",
+            "description": "Learn the basics of the subject.",
+            "credits": "2",
+            "time": "2 weeks",
+            "subchapter": [
+                {
+                    "title": "Lesson 1"
+                },
+                {
+                    "title": "Lesson 2"
+                }
+            ]
+        },
+        {
+            "title": "Intermediate",
+            "description": "Learn intermediate concepts.",
+            "credits": "3",
+            "time": "3 weeks",
+            "subchapter": [
+                {
+                    "title": "Lesson 1"
+                },
+                {
+                    "title": "Lesson 2"
+                }
+            ]
+        },
+        {
+            "title": "Advanced",
+            "description": "Learn advanced concepts.",
+            "credits": "4",
+            "time": "4 weeks",
+            "subchapter": [
+                {
+                    "title": "Lesson 1"
+                },
+                {
+                    "title": "Lesson 2"
+                }
+            ]
+        },
+        {
+            "title": "Final Project",
+            "description": "Complete a final project.",
+            "credits": "5",
+            "time": "5 weeks",
+            "subchapter": [
+                {
+                    "title": "Project Proposal"
+                },
+                {
+                    "title": "Project Execution"
+                }
+            ]
+        },
+        {
+            "title": "Conclusion",
+            "description": "Wrap up the course.",
+            "credits": "1",
+            "time": "1 week",
+            "subchapter": [
+                {
+                    "title": "Course Review"
+                },
+                {
+                    "title": "Goodbye"
+                }
+            ]
+        },
+        {
+            "title": "Appendix",
+            "description": "Additional resources.",
+            "credits": "0",
+            "time": "0 weeks",
+            "subchapter": [
+                {
+                    "title": "Resource 1"
+                },
+                {
+                    "title": "Resource 2"
+                }
+            ]
+        }
+    ]
+}
