@@ -21,7 +21,6 @@ function Home() {
     <>
 
       
-      
       <HeroSection/>
       <Filter data={courses}/>
       <Partners/>
