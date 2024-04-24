@@ -2,6 +2,7 @@ import React from 'react'
 import mentors from '../data/mentor.json'
 import Image from 'next/image';
 import { relative } from 'path';
+import { LinkedinIcon } from 'lucide-react';
 
 
 interface Mentors{
@@ -42,13 +43,7 @@ function Mentor() {
                       <p className='text-lg font-bold'>{mentor.position}</p>
                       <p className='text-sm'>{mentor.experience}</p>
                       <a href={mentor.linkedin} target='_blank' rel='noopener noreferrer' className='items-center flex justify-center' >
-                        <Image
-                          alt='LinkedIn Icon'
-                          src='https://cdn1.iconfinder.com/data/icons/logotypes/32/circle-linkedin-512.png'
-                          width={40}
-                          height={40}
-                            className='rounded-full p-8 mt-4'
-                        />
+                        <LinkedinIcon/>
                       </a>
                     </div>
                   </div>

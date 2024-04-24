@@ -18,7 +18,7 @@ const Partners: React.FC = () => {
       <div className=" top-0 left-0 w-full flex gap-5 justify-center items-center">
         {partnersData.map((partner, index) => (
 
-          <div key={index} className="bg-white rounded-2xl px-1  min-h-14 shadow-md  animate-partner-card">
+          <div key={index} className="bg-white rounded-2xl px-1  min-h-14 shadow-md  animate-partner-card object-cover">
             <Image
             src={partner.image}
             alt={partner.name}
