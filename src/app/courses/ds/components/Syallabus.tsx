@@ -35,10 +35,12 @@ export function Syllabus() {
     <CarouselContent>
         {syllbasData.map((syl) => (
             <CarouselItem key={syl.title}>
-                <div className="p-1">
-                    <Card>
-                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                            <span className="text-4xl font-semibold">{syl.title}</span>
+                <div className="">
+                    <Card className="max-w-96 max-h-96">
+                        <CardContent className="flex  aspect-square  items-center justify-center gap-8">
+                            <h1>
+                                {syl.title}
+                            </h1>
                         </CardContent>
                     </Card>
                 </div>
