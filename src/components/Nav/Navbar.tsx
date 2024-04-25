@@ -1,9 +1,16 @@
 import React from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu} from "@nextui-org/react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, dropdown, extendVariants} from "@nextui-org/react";
 import Image from "next/image";
 import { ChevronDown, Heading1 } from "lucide-react";
 
 
+export const MyDropDown = extendVariants(Dropdown, {
+  variants:{
+    color: {
+      
+    },
+  }
+})
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -34,13 +41,12 @@ export default function Nav() {
 
       <NavbarContent className="hidden sm:flex gap-4 text-blue-500" justify="start">
 
-      
       <Dropdown>
           <NavbarItem>
             <DropdownTrigger>
               <Button
                 disableRipple
-                className="p-0 bg-transparent data-[hover=true]:bg-transparent"
+                className="p-0 bg-transparent data-[hover=true]:bg-transparent hover:bg-blue-200 rounded-lg p-2"
                // endContent={Heading1}
                 radius="sm"
                 variant="light"
@@ -61,37 +67,38 @@ export default function Nav() {
               key="autoscaling"
               description="ACME scales apps to meet user demand, automagically, based on load."
              // startContent={icons.scale}
+             href="/courses/ds"
              className="hover:bg-blue-100 hover:text-blue-600 p-2 rounded-lg"
             >
              Data Science
             </DropdownItem>
             <DropdownItem
-              key="usage_metrics"
+              key="web-dev"
               description="Real-time metrics to debug issues. Slow query added? We’ll show you exactly where."
               //startContent={icons.activity}
             >
-              Usage Metrics
+              Web Development
             </DropdownItem>
             <DropdownItem
-              key="production_ready"
-              description="ACME runs on ACME, join us and others serving requests at web scale."
+              key="ml"
+              description="Machine Learning"
               //startContent={icons.flash}
             >
-              Production Ready
+              Machine Learinig
             </DropdownItem>
             <DropdownItem
               key="99_uptime"
               description="Applications stay on the grid with high availability and high uptime guarantees."
               //startContent={icons.server}
             >
-              +99% Uptime
+              Mobile App Development
             </DropdownItem>
             <DropdownItem
               key="supreme_support"
               description="Overcome any challenge with a supporting team ready to respond."
               //startContent={icons.user}
             >
-              +Supreme Support
+              Blockchain
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>

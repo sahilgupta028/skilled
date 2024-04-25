@@ -83,7 +83,7 @@ const Filter: React.FC<FilterProps> = ({ data }) => {
 
     return (
 
-      <div className='' >
+      <div className=' overflow-y-scroll max-h-screen' >
 
       <div className='text-center p-4 bg-red-100 rounded-lg m-2'>
         <h1 className='bg-gradient-to-r from-blue-500 via-blue-600  to-red-600 inline-block text-transparent bg-clip-text text-4xl font-bold font-sans hover:font-extrabold'
@@ -91,8 +91,8 @@ const Filter: React.FC<FilterProps> = ({ data }) => {
       </div>
         <div className=''>
 
-        <div className="flex gap-2 bg-white">
-            <div className="w-60 p-4 ">
+        <div className="flex gap-2 bg-white relative">
+            <div className="w-60 p-4">
                 <h3 className="font-bold mb-2 text-2xl text-blue-600 bg-blue-200 w-full p-2 rounded-md">Category</h3>
                 <div className="space-y-2 ">
                     <button onClick={() => handleCategoryChange('All')} className={`w-full py-2 px-4 rounded-lg ${categoryFilter === 'All' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}>All</button>
@@ -107,7 +107,7 @@ const Filter: React.FC<FilterProps> = ({ data }) => {
 
             <div className="w-full p-4 ">
                 <h3 className="font-bold mb-2 text-blue-600 text-3xl w-full bg-blue-200 p-2 p text-center rounded-md">Timing</h3>
-                <div className="flex space-x-4 justify-start ">
+                <div className="flex space-x-4 justify-start sticky top-6">
                     <button onClick={() => handleTimingChange('All')} className={`py-2 px-4 rounded-lg  ${timingFilter === 'All' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}>All</button>
                     <button onClick={() => handleTimingChange('Live')} className={`py-2 px-4 rounded-lg ${timingFilter === 'Live' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}>Live</button>
                     <button onClick={() => handleTimingChange('Upcoming')} className={`py-2 px-4 rounded-lg ${timingFilter === 'Upcoming' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'}`}>Upcoming</button>
@@ -119,6 +119,7 @@ const Filter: React.FC<FilterProps> = ({ data }) => {
               <div className='scrollbar-thin bg-white  max-h-lvh min-h-96 overflow-y-scroll'>
               <div className="w-full p-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 bg-blue-200">
                 <ul className='grid grid-cols-3 p-4 gap-6 mt-0 pt-0 '>
+
                     {filteredData.map(course => (
                         <Card key={course.id} className='rounded-2xl bg-white max-w-sm ' >
                         <CardHeader className='w-full p-0 rounded-2xl' >
@@ -192,15 +193,11 @@ const Filter: React.FC<FilterProps> = ({ data }) => {
                 </ul>
             </div>
               </div>
-            </div>
-            
-            </div>
-            
+            </div>          
+            </div>    
         </div>
-        </div>
-       
-
       </div>
+    </div>
 
        
     );

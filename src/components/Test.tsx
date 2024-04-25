@@ -1,39 +1,32 @@
-import React, { useRef, useEffect } from 'react';
+import { Spacer } from '@nextui-org/spacer';
+import React from 'react';
 
-const Test = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollElement = scrollRef.current;
-      if (scrollElement) {
-        const rect = scrollElement.getBoundingClientRect();
-        const bottomOffset = window.innerHeight - rect.bottom;
-        if (bottomOffset >= 0) {
-          scrollElement.classList.remove('sticky', 'top-0');
-          scrollElement.classList.add('absolute', 'bottom-0');
-        } else {
-          scrollElement.classList.remove('absolute', 'bottom-0');
-          scrollElement.classList.add('sticky', 'top-0');
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
+function Scroll() {
   return (
-    <div className="h-screen overflow-y-auto">
-      <div className="pb-20" ref={scrollRef}>
-        <div className="h-96 bg-gray-100">Sticky Header</div>
-        <div className="h-96 bg-gray-200">Scrollable Content</div>
+    <div className="flex relative overflow-scroll max-h-[800px]">
+
+        <Spacer y={96} />
+      <div className="sticky top-0 h-screen overflow-auto">
+        {/* Sidebar content */}
+        <div className="p-4">
+          <h2 className="font-bold text-xl mb-4">Sidebar</h2>
+          {/* Add your sidebar content here */}
+        </div>
       </div>
-      <div className="h-20 bg-gray-300">Sticky Footer</div>
+      <div className="flex flex-wrap justify-center w-full">
+        {/* Grid of cards */}
+        {Array(20).fill(null).map((_, index) => (
+          <div key={index} className="m-4 w-64">
+            <div className="bg-white rounded shadow p-4">
+              <h3 className="font-bold text-lg mb-4">Card {index + 1}</h3>
+                {/* Add your card content here */}
+                <p>Test Courses</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
-};
+}
 
-export default Test;
+export default Scroll;
