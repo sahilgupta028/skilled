@@ -83,7 +83,7 @@ const Filter: React.FC<FilterProps> = ({ data }) => {
 
     return (
 
-      <div className=' overflow-y-scroll max-h-screen' >
+      <div className='' >
 
       <div className='text-center p-4 bg-red-100 rounded-lg m-2'>
         <h1 className='bg-gradient-to-r from-blue-500 via-blue-600  to-red-600 inline-block text-transparent bg-clip-text text-4xl font-bold font-sans hover:font-extrabold'
@@ -116,10 +116,9 @@ const Filter: React.FC<FilterProps> = ({ data }) => {
             </div>
 
             <div className='scrollbar-thumb-sky-700 scrollbar-track-sky-300'>
-              <div className='scrollbar-thin bg-white  max-h-lvh min-h-96 overflow-y-scroll'>
-              <div className="w-full p-4 grid grid-cols-3 sm:grid-cols-1 md:grid-cols-1 bg-blue-200">
+              <div className=''>
+              <div className="">
                 <ul className='grid grid-cols-3 p-4 gap-6 mt-0 pt-0 '>
-
                     {filteredData.map(course => (
                         <Card key={course.id} className='rounded-2xl bg-white max-w-sm ' >
                         <CardHeader className='w-full p-0 rounded-2xl' >
