@@ -1,23 +1,18 @@
 "use client";
 
-import LoginPage from '@/app/auth/login/page'
 import React from 'react'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import Link from 'next/link'
-import { useState, useEffect, useTransition,  } from 'react'
-import { useDebounceValue} from "usehooks-ts"
+import { useState, useEffect,   } from 'react'
+import {  useDebounceCallback} from "usehooks-ts"
 import { useRouter } from 'next/navigation'
 import { useToast } from '@/components/ui/use-toast'
-import { sign } from 'crypto'
 import { signUpSchema } from '@/schemas/signUpSchema'
 import axios, { AxiosError } from 'axios'
 import { ApiResponse } from '@/types/ApiResponse'
-import { set } from 'mongoose'
-import { Header } from '@/components/auth/header'
 import { CardWrapper } from '@/components/auth/card-wrapper'
-import Head from 'next/head'
+
 
 import {
   Form,
@@ -34,20 +29,20 @@ import { FormSuccess } from '@/components/form-success'
 import { register } from "@/actions/register"
 import { Input } from '@/components/ui/input'
 import { Loader2 } from 'lucide-react';
-import { signInSchema } from '@/schemas/signInSchema';
 
 
 
-function SignIn() {
+export default function Register() {
 
   const [ username, setUsername ] = useState('')
   const [usernameMessage, setUsernameMessage] = useState('')
   const [password, setPassword] = useState('')
+  const [passwordMessage, setPasswordMessage] = useState('')
   const [isCheckingUsername, setIsCheckingUsername] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const debouncedUsername = useDebounceValue(username, 500)
-  const toast = useToast()
+  const debounced = useDebounceCallback(setUsername, 500)
+  const { toast } = useToast()
   const router = useRouter()
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess ] = useState<string | undefined>("")
@@ -63,22 +58,28 @@ function SignIn() {
     })
 
     useEffect(() => {
-      const checkUsername = async () => {
-        if (debouncedUsername) {
+      const checkUsernameUnique = async () => {
+        if (username) {
           setIsCheckingUsername(true)
-          setIsCheckingUsername(false)
           setUsernameMessage('')
         }
 
         try {
-          const response = await axios.get(`/api/check-username-unique?username=${debouncedUsername}`)
+          const response = await axios.get(`/api/check-username-unique?username=${username}`)
           console.log("Response: ",response.data)
 
           setUsernameMessage(response.data.message)
 
         } catch (error) {
           const axiosError = error as AxiosError<ApiResponse>
-          setError(axiosError.response?.data.message || 'Error checking username')
+          if(username === ''){
+            setUsernameMessage('')
+            setError('')
+          }else{
+            setUsernameMessage(axiosError.response?.data.message || 'Error checking username')
+            setError(axiosError.response?.data.message || 'Error checking username')
+          }
+          
 
           console.log("AxiosError: ",axiosError.response?.data)
           setUsernameMessage(axiosError.response?.data.message || 'Error checking username')
@@ -86,37 +87,51 @@ function SignIn() {
         finally{
           setIsCheckingUsername(false)
         }
-      }
-    })
+      };
+      checkUsernameUnique()
+      
+    }, [username])
 
-  const onSubmit = async (data: z.infer<typeof signInSchema>) => {
+  const onSubmit = async (data: z.infer<typeof signUpSchema>) => {
+
     setIsSubmitting(true)
+    console.log("Submitting data: ",data)
 
     try {
       console.log("Data: ",data)
 
       const response = await axios.post<ApiResponse>('/api/register', data)
 
-      console.log("Response: ",response.data)
+      if(!response.data){
+        console.log("Error finding Response: ",response.data)
+        setError(response.data)
+        setIsSubmitting(false)
+        return null
+      }
+
+      console.log("Response Data: ",response.data)
      
-      toast.toast({
+      console.log("Response Data Message: ",response.data.message)
+
+      toast({
         title: 'Success',
         description: response.data.message
       })
 
       setSuccess(response.data.message)
 
-      router.replace(`/verify-code/${username}`)
+      router.replace(`/verify/${username}`)
       setIsSubmitting(false)
 
     } catch (error) {
+
       console.log("Error is registering user: ",error)
 
       const axiosError = error as AxiosError<ApiResponse>
 
       setError(axiosError.response?.data.message || 'Error registering user')
 
-      toast.toast({
+      toast({
         title: 'Error',
         description: axiosError.response?.data.message || 'Error registering user',
         variant: "destructive"
@@ -130,9 +145,9 @@ function SignIn() {
     <div className='h-full flex items-center justify-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 to-blue-800  '>
     
     <CardWrapper 
-        headerLabel="Sign In"
-        backButtonLabel="Don't have an account?"
-        backButtonHref="/auth/register"
+        headerLabel="Create an Account"
+        backButtonLabel="Already have an account?"
+        backButtonHref="/auth/login"
         showSocial={true}
        >
             <Form {...form}>
@@ -141,7 +156,7 @@ function SignIn() {
                     className="space-y-6"
                 >
                     <div className="space-y-4">
-                    {/* <FormField
+                    <FormField
                             control={form.control}
                             name="username"
                             render={({ field }) => (
@@ -155,14 +170,19 @@ function SignIn() {
                                             type="username"
                                             onChange={(e) => {
                                               field.onChange(e)
-                                              setUsername(e.target.value)
+                                              debounced(e.target.value)
                                             }}
                                         />
+                                        
                                     </FormControl>
+                                     { isCheckingUsername && <Loader2 className='animate-spin'/> }
+                                     <p className={`text-sm ${usernameMessage === "Username is available" ? 'text-green-500' : 'text-red-500'}`}>
+                                         { usernameMessage}
+                                     </p>
                                     <FormMessage />
                                 </FormItem>
                             )}
-                        /> */}
+                        />
 
                         <FormField
                             control={form.control}
@@ -196,7 +216,7 @@ function SignIn() {
                                             type="password"
                                             disabled={isSubmitting}
                                         />
-                                    </FormControl>
+                                    </FormControl>                             
                                     <FormMessage />
                                 </FormItem>
                             )}
@@ -205,16 +225,16 @@ function SignIn() {
                     <FormError  message={error}/>
                     <FormSuccess message={success}/>
                     <Button
-                    className="w-full bg-blue-600"
+                    className="w-full"
                     type="submit"
                     disabled={isSubmitting}
                     >
                         {
                           isSubmitting ? (
                             <>
-                              <Loader2 className='mr-3 h-4 w-4'/> Authenticating User...
+                              <Loader2 className='mr-3 h-4 w-4 animate-spin'/> Creating Account
                             </>
-                          ) : ('Log In')
+                          ) : ('Create an Account')
                         }
                     </Button>
                 </form>
@@ -224,5 +244,3 @@ function SignIn() {
     </div>
   )
 }
-
-export default SignIn

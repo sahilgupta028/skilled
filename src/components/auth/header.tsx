@@ -20,7 +20,7 @@ export const Header = ({
                 "text-3xl font-semibold text-blue-700 drop-shadow-md",
                 font.className
             )}>
-               🔐 Auth
+               skilledUp
             </h1>
             <p className="text-muted-foreground text-sm">
                 {label}
