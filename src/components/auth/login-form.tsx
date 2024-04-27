@@ -21,7 +21,7 @@ import { Button } from "../ui/button"
 import { FormError } from "../form-error"
 import { FormSuccess } from "../form-success"
 import { login } from "@/actions/login"
-
+import { signIn } from "@/app/auth"
 
 export const LoginForm = () => {
     const [isPending, startTransition] = useTransition();
@@ -58,10 +58,16 @@ export const LoginForm = () => {
         backButtonHref="/auth/register"
         showSocial={true}
        >
-            <Form {...form}>
+            <Form 
+            {...form}
+            >
                 <form 
                     onSubmit={form.handleSubmit(onSubmit)}
                     className="space-y-6"
+                    action={ async (formData) => {
+                        console.log("form data", formData)
+                        await signIn("credentials", formData)
+                    }}
                 >
                     <div className="space-y-4">
                         <FormField
@@ -108,6 +114,7 @@ export const LoginForm = () => {
                     className="w-full"
                     type="submit"
                     disabled={isPending}
+                    onClick={form.handleSubmit(onSubmit)}
                     >
                         Login
                     </Button>
