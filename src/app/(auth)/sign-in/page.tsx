@@ -29,6 +29,7 @@ import { Input } from '@/components/ui/input'
 import { Loader2 } from 'lucide-react';
 import { signInSchema } from '@/schemas/signInSchema';
 import { signIn } from 'next-auth/react';
+import { clear } from 'console';
 
 
 
@@ -56,7 +57,11 @@ function SignIn() {
     setError('')
     setIsSubmitting(true)
 
+    console.log('Credentials: ', data)
+    console.log("Sign In initiated...")
+    
     const result = await signIn(
+    
       'credentials',
       {
         email: data.email,
@@ -65,9 +70,14 @@ function SignIn() {
       }
     )
 
+    console.log('Result: ', result)
+
     if(result?.error){
 
       if (result.error === 'CredentialsSignin') {
+
+        console.log('Error: ', result.error)
+
         toast({
           title: 'Login Failed',
           description: 'Incorrect username or password',
@@ -82,13 +92,21 @@ function SignIn() {
             variant: "destructive",
           })
       }
+
+      console.log('Error: ', result.error)
+
       setError(result.error)
       setIsSubmitting(false)
     }
 
+    console.log('Result: ', result)
+    console.log('Result URL: ', result?.url)
+
     if(result?.url){
-      router.replace('/dashboard')
+      console.log('Redirecting to: ', result.url)
+      window.location.href = '/dashboard'
     }
+
   }
 
   return (

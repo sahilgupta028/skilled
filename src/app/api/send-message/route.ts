@@ -2,7 +2,7 @@ import dbConnect from "@/lib/dbConnect";
 import UserModel from "@/model/User";
 import { User } from "next-auth";
 import { Message } from "@/model/User";
-import { auth } from "@/app/auth";
+import { auth } from "@/auth";
 
 export async function POST(request: Request){
     await dbConnect();

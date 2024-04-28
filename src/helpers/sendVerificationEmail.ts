@@ -10,6 +10,8 @@ export async function sendVerificationEmail(
 ): Promise<ApiResponse>{
     try {
 
+        console.log("Sending verification email to, try block: ", email)
+
         await resend.emails.send({
             from: 'onboarding@resend.dev',
             to: email,
