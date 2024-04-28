@@ -45,6 +45,9 @@ export async function POST(request: Request){
             );
         }
 
+        console.log("User status updated successfully, user: ", updatedUser)
+
+        
         return Response.json(
             {
                 success: true,

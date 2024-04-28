@@ -1,23 +1,16 @@
 "use client";
 
-import LoginPage from '@/app/auth/login/page'
 import React from 'react'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import Link from 'next/link'
 import { useState, useEffect, useTransition,  } from 'react'
 import { useDebounceValue} from "usehooks-ts"
 import { useRouter } from 'next/navigation'
 import { useToast } from '@/components/ui/use-toast'
-import { sign } from 'crypto'
-import { signUpSchema } from '@/schemas/signUpSchema'
 import axios, { AxiosError } from 'axios'
 import { ApiResponse } from '@/types/ApiResponse'
-import { set } from 'mongoose'
-import { Header } from '@/components/auth/header'
 import { CardWrapper } from '@/components/auth/card-wrapper'
-import Head from 'next/head'
 
 import {
   Form,
@@ -35,94 +28,66 @@ import { register } from "@/actions/register"
 import { Input } from '@/components/ui/input'
 import { Loader2 } from 'lucide-react';
 import { signInSchema } from '@/schemas/signInSchema';
+import { signIn } from 'next-auth/react';
 
 
 
 function SignIn() {
 
-  const [ username, setUsername ] = useState('')
-  const [usernameMessage, setUsernameMessage] = useState('')
-  const [password, setPassword] = useState('')
-  const [isCheckingUsername, setIsCheckingUsername] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  const debouncedUsername = useDebounceValue(username, 500)
-  const toast = useToast()
+  const [email, setEmail] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const { toast } = useToast()
   const router = useRouter()
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess ] = useState<string | undefined>("")
 
   // zod implementation
-  const form = useForm<z.infer<typeof signUpSchema>>({
-    resolver: zodResolver(signUpSchema),
+  const form = useForm<z.infer<typeof signInSchema>>({
+    resolver: zodResolver(signInSchema),
     defaultValues: {
-      username: '',
       email: '',
       password: '',
     },
     })
 
-    useEffect(() => {
-      const checkUsername = async () => {
-        if (debouncedUsername) {
-          setIsCheckingUsername(true)
-          setIsCheckingUsername(false)
-          setUsernameMessage('')
-        }
-
-        try {
-          const response = await axios.get(`/api/check-username-unique?username=${debouncedUsername}`)
-          console.log("Response: ",response.data)
-
-          setUsernameMessage(response.data.message)
-
-        } catch (error) {
-          const axiosError = error as AxiosError<ApiResponse>
-          setError(axiosError.response?.data.message || 'Error checking username')
-
-          console.log("AxiosError: ",axiosError.response?.data)
-          setUsernameMessage(axiosError.response?.data.message || 'Error checking username')
-        }
-        finally{
-          setIsCheckingUsername(false)
-        }
-      }
-    })
 
   const onSubmit = async (data: z.infer<typeof signInSchema>) => {
+    setError('')
     setIsSubmitting(true)
 
-    try {
-      console.log("Data: ",data)
+    const result = await signIn(
+      'credentials',
+      {
+        email: data.email,
+        password: data.password,
+        redirect: false
+      }
+    )
 
-      const response = await axios.post<ApiResponse>('/api/register', data)
+    if(result?.error){
 
-      console.log("Response: ",response.data)
-     
-      toast.toast({
-        title: 'Success',
-        description: response.data.message
-      })
-
-      setSuccess(response.data.message)
-
-      router.replace(`/verify-code/${username}`)
+      if (result.error === 'CredentialsSignin') {
+        toast({
+          title: 'Login Failed',
+          description: 'Incorrect username or password',
+          variant: 'destructive',
+        });
+        
+      } else{
+          console.log('Error: ', result.error)
+          toast({
+            title: 'Error',
+            description: result.error,
+            variant: "destructive",
+          })
+      }
+      setError(result.error)
       setIsSubmitting(false)
+    }
 
-    } catch (error) {
-      console.log("Error is registering user: ",error)
-
-      const axiosError = error as AxiosError<ApiResponse>
-
-      setError(axiosError.response?.data.message || 'Error registering user')
-
-      toast.toast({
-        title: 'Error',
-        description: axiosError.response?.data.message || 'Error registering user',
-        variant: "destructive"
-      })
-
-      setIsSubmitting(false)
+    if(result?.url){
+      router.replace('/dashboard')
     }
   }
 
@@ -169,13 +134,17 @@ function SignIn() {
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Email</FormLabel>
+                                    <FormLabel>Email/Username</FormLabel>
                                     <FormControl>
                                         <Input 
                                             disabled={isSubmitting}
                                             {...field}
                                             placeholder="abhi@email.com"
                                             type="email"
+                                            onChange={(e) => {
+                                              field.onChange(e)
+                                              setEmail(e.target.value)
+                                            }}
                                         />
                                     </FormControl>
                                     <FormMessage />
@@ -212,7 +181,7 @@ function SignIn() {
                         {
                           isSubmitting ? (
                             <>
-                              <Loader2 className='mr-3 h-4 w-4'/> Authenticating User...
+                              <Loader2 className='mr-3 h-4 w-4 animate-spin'/> Authenticating User...
                             </>
                           ) : ('Log In')
                         }
