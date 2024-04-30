@@ -26,13 +26,24 @@ import Image from 'next/image';
 import { Card, CardHeader, Spacer } from '@nextui-org/react';
 import { Poppins } from 'next/font/google';
 import { CardContent } from '@/components/ui/card';
-
+import Footer from '@/components/Footer';
+import HeroSection from '@/components/HeroSection';
+import { useWindowSize } from '@react-hook/window-size'
 
 const font = Poppins({
   subsets: ["latin"],
   weight: ["600"]
 })
 
+
+const CourseCard = React.memo(function CourseCard({ course }: { course: Course }) {
+  return (
+    <Card key={course.id}>
+      <p>{course.description}</p>
+    </Card>
+  );
+});
+//CourseCard.displayName = 'CourseCard';
 
 
 function Home() {
@@ -45,6 +56,7 @@ function Home() {
   const [loading, setLoading] = useState(false)
   const router = useRouter()
   const { data: session } = useSession()
+  const [windowWidth] = useWindowSize()
 
 
   const fetchCourses = useCallback(async () => {
@@ -138,10 +150,12 @@ function Home() {
   return (
    <main className=''>
 
+    <HeroSection/>
+
     <Spacer className='h-[50px]'/>
 
     {/* Upper Tabbar with timing filter */}
-    <div className='w-full p-1'>
+    <div className='w-full p-1' style={{ position: windowWidth > 1024 ? 'sticky' : 'static', top: 0, zIndex: 10 }}>
       <div className="flex gap-1  justify-between">
         {
           ['All','Live', 'Upcming', 'Bootcamp'].map(time => (
@@ -168,7 +182,7 @@ function Home() {
 
     <div className='lg:flex  bg-blue-100 p-1'>
     <div className='w-full lg:w-auto top-0 sticky z-10'>
-      <div className="flex lg:flex-col gap-1 lg:m-0 mb-5 justify-between">
+      <div className="flex lg:flex-col gap-1 lg:m-0 mb-5 justify-between" style={{ position: windowWidth > 1024 ? 'sticky' : 'static', top: 0, zIndex: 10 }}>
         {
           ['All','Programming', 'JavaScript', 'Python'].map(category => (
             <Button 
@@ -266,7 +280,7 @@ function Home() {
     </div>
     </div>
 
-    
+    <Footer/>
 
    </main>
   )

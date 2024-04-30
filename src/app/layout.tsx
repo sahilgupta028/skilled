@@ -3,9 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import AuthProvider from "@/context/AuthProvider";
 import { Toaster } from "@/components/ui/toaster"
-import { Navbar } from "@nextui-org/navbar";
 import Nav from "@/components/Nav/Navbar";
 import Footer from "@/components/Footer";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,12 +27,10 @@ export default function RootLayout({
           <body className={inter.className}>
             {/* <Providers> */}
 
-              <Nav/>
+              {/* <Nav/> */}
             
               {children}
-           
-              {/* <Footer/> */}
-             
+            
             {/* </Providers> */}
 
             <Toaster />

@@ -3,8 +3,22 @@ import React, { useEffect, useState } from 'react'
 import {Button } from "./ui/button"
 import { courses } from '../data/test.json';
 import {ChevronDownIcon} from '@heroicons/react/20/solid'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+
+
 
 function HeroSection() {
+
+  const [position, setPosition] = useState("bottom")
 
     return (
     <div>
@@ -28,19 +42,21 @@ function HeroSection() {
 
         <div className='mt-3 flex flex-col gap-8 w-1/2'>
       
-          <select className='border-2 border-blue-500 p-2 rounded-lg text-blue-600'>
-          
-            <option className='  text-blue-600'>
-              Select Goal 
-              </option>
-            <option>
-              Data Scientist
-            </option>
-            <option>ML Engineer</option>
-            <option>Full Stack Developer</option>
-            <option>Web Developer</option>
-            <option>App Developer</option>
-          </select>
+        <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline">Open</Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-56">
+        <DropdownMenuLabel>Panel Position</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
+          <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
+          <DropdownMenuRadioItem value="right">Right</DropdownMenuRadioItem>
+        </DropdownMenuRadioGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
+
         
           <select className='border-2 border-blue-600 p-2  text-blue-600 rounded-lg'>
             <option>
@@ -78,14 +94,14 @@ function HeroSection() {
         
         </div>
         <div className='items-center justify-center flex bg-gradient-to-r from-blue-500 from-10% via-blue-600 via-30% to-red-500 to-90% p-1 w-5/6 rounded-3xl mb-3'>
-          <div className='rounded-3xl bg-white shadow-lg h-40  flex gap-11 w-full justify-center items-center'>
-                <h1 className='bg-gradient-to-r from-blue-500 via-blue-600  to-red-600 inline-block text-transparent bg-clip-text text-4xl font-bold '>
+          <div className='rounded-3xl bg-white shadow-lg  flex  w-full justify-center items-center pl-5 p-2'>
+                <h1 className='bg-gradient-to-r from-blue-500 via-blue-600  to-red-600 inline-block text-transparent bg-clip-text text-lg lg:test-4xl font-bold '>
                   50+ Courses
                 </h1> |
-                <h1 className='bg-gradient-to-r from-blue-500 via-blue-600  to-red-600 inline-block text-transparent bg-clip-text text-4xl font-bold '>
+                <h1 className='bg-gradient-to-r from-blue-500 via-blue-600  to-red-600 inline-block text-transparent bg-clip-text text-lg lg:test-4xl font-bold '>
                   8000+ Learners
                 </h1>  |
-                <h1 className='bg-gradient-to-r from-blue-500 via-blue-600  to-red-600 inline-block text-transparent bg-clip-text text-4xl font-bold '>
+                <h1 className='bg-gradient-to-r from-blue-500 via-blue-600  to-red-600 inline-block text-transparent bg-clip-text text-lg lg:test-4xl font-bold '>
                   1000+ Certified
                 </h1>
           </div>
