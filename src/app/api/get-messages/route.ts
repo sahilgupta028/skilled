@@ -3,10 +3,13 @@ import dbConnect from '@/lib/dbConnect';
 import UserModel from '@/model/User';
 import mongoose, { mongo } from 'mongoose';
 import { User } from 'next-auth';
-
+import courseData from '@/data/courses.json';
+import CourseModel from '@/model/Course';
 
 export async function GET(request: Request){
     await dbConnect();
+
+    
 
     const session = await auth();
 

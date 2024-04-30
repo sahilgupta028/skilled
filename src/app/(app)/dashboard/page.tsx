@@ -3,7 +3,6 @@
 import React, { useCallback } from 'react'
 import { useState, useEffect } from 'react'
 import { Message } from '@/model/User';
-import { auth } from '@/app/auth';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
@@ -20,10 +19,10 @@ import { Switch } from '@/components/ui/switch';
 import { Separator } from '@/components/ui/separator';
 import { Key, Loader2, RefreshCcw } from 'lucide-react';
 import { MessageCard } from '@/components/MessageCard';
-import { on } from 'events';
 
 
- function Dashboard() {
+
+function Dashboard() {
   const [messages, setMessages] = useState<Message[]>([])
   const [loading, setLoading] = useState(true)
   const [isSwitchloading, setIsSwitchLoading] = useState(false)
