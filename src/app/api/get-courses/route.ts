@@ -12,23 +12,6 @@ export async function GET(request: Request){
    console.log("Initiating GET request for courses")
 
    try {
-
-    coursesArray.forEach(async (course) => {
-        const courseModel = new CourseModel(course);
-        try {
-           // await courseModel.save();
-
-            console.log("Course saved successfully")
-
-        } catch (error) {
-            console.log("Error in saving course: ", error)
-        }
-    })
-
-    
-
-
-    console.log("Course saved successfully 2")
     
     const courses = await CourseModel.find({}).exec();
 
