@@ -1,28 +1,30 @@
 import mongoose, {Schema, Document } from "mongoose";
 import { Video, VideoSchema } from "./Video";
 import VideoModel from "./Video";
+import { CourseOffer, CourseOfferSchema } from "./CourseParts";
+import { CourseAboutSchema, CourseAbout } from "./CourseAbout";
 
 export interface Course {
-    id?: number;
     name: string;
     description: string;
+    about?: CourseAbout;
     price: number;
     startDate: Date;
     endDate: Date;
-    instructor?: string;
+    mentors?: string[];
     duration: string;
     imageUrl: string;
-    link: string;
+    videoUrl?: string;
+    syllabusLink: string;
     videos?: Video[];
     categories: string[];
+    courseOfferings?: CourseOffer[];
+    tag?: string;
+    syllabus?: string[];
 }
 
 
 const CourseSchema: Schema<Course> = new Schema({
-    id: {
-        type: Number,
-        required: true
-    },
     name: {
         type: String,
         required: true
@@ -31,6 +33,7 @@ const CourseSchema: Schema<Course> = new Schema({
         type: String,
         required: true
     },
+    about: CourseAboutSchema,
     price: {
         type: Number,
         required: true
@@ -43,10 +46,12 @@ const CourseSchema: Schema<Course> = new Schema({
         type: Date,
         required: true
     },
-    instructor: {
-        type: String,
-        default: "Vijay Singh"
-    },
+    mentors: [
+        {
+            type: String,
+            default: ["Vijay Singh"]
+        }
+    ],
     duration: {
         type: String,
     },
@@ -54,8 +59,13 @@ const CourseSchema: Schema<Course> = new Schema({
         type: String,
         required: true
     },
-    link: {
+    videoUrl: {
         type: String,
+        required: true
+    },
+    syllabusLink: {
+        type: String,
+        required: true
     },
     videos: [
         VideoSchema
@@ -63,7 +73,16 @@ const CourseSchema: Schema<Course> = new Schema({
     categories: {
         type: [String],
         required: true
-    }
+    },
+    tag: {
+        type: String
+    },
+    syllabus: {
+        type: [String]
+    },
+    courseOfferings: [
+        CourseOfferSchema
+    ]
 })
 
 const CourseModel = mongoose.models && mongoose.models.Course ? mongoose.models.Course as mongoose.Model<Course> : mongoose.model<Course>("Course", CourseSchema);

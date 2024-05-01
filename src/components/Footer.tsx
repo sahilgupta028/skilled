@@ -7,8 +7,8 @@ const Footer = () => {
   return (
     <div>
       <footer className='bg-black text-white py-12'>
-        <div className='flex justify-around'>
-          <div className='flex flex-col gap-4'>
+        <div className='flex flex-col lg:flex-row justify-center items-center'>
+          <div className='flex flex-col gap-4 '>
 
           <motion.div whileHover={{ scale: 1.1 }} transition={{ duration: 0.2 }}>
             <Image src="https://skilledup.tech/images/logo(1).png" alt='Logo Image' width={100} height={100} className='bg-white rounded-xl  p-5' />

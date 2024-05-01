@@ -1,49 +1,24 @@
 "use client";
 
 
-import React, { use, useCallback } from 'react'
-import { useState, useEffect } from 'react'
-import { Message } from '@/model/User';
+import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useForm } from 'react-hook-form';
-import { isAcceptingMessageSchema } from '@/schemas/acceptMessageSchema';
-import * as z from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import { ApiResponse } from '@/types/ApiResponse';
 import { toast } from '@/components/ui/use-toast';
 import { Button } from '@/components/ui/button';
-import { User } from 'next-auth';
-import { Input } from '@/components/ui/input';
-import { Switch } from '@/components/ui/switch';
-import { Separator } from '@/components/ui/separator';
-import { Key, Loader2, RefreshCcw } from 'lucide-react';
-import { MessageCard } from '@/components/MessageCard';
 import { Course } from '@/model/Course';
-import { set } from 'mongoose';
 import Image from 'next/image';
 import { Card, CardHeader, Spacer } from '@nextui-org/react';
-import { Poppins } from 'next/font/google';
 import { CardContent } from '@/components/ui/card';
 import Footer from '@/components/Footer';
 import HeroSection from '@/components/HeroSection';
 import { useWindowSize } from '@react-hook/window-size'
+import CircularProgress from '@mui/material/CircularProgress';
+import { Sparkle } from 'lucide-react';
+import Partners from '@/components/Partener';
 
-const font = Poppins({
-  subsets: ["latin"],
-  weight: ["600"]
-})
-
-
-const CourseCard = React.memo(function CourseCard({ course }: { course: Course }) {
-  return (
-    <Card key={course.id}>
-      <p>{course.description}</p>
-    </Card>
-  );
-});
-//CourseCard.displayName = 'CourseCard';
 
 
 function Home() {
@@ -55,8 +30,8 @@ function Home() {
   const [filteredByTimeCourses, setFilteredByTimeCourses] = useState<Course[]>([])
   const [loading, setLoading] = useState(false)
   const router = useRouter()
-  const { data: session } = useSession()
   const [windowWidth] = useWindowSize()
+
 
 
   const fetchCourses = useCallback(async () => {
@@ -101,8 +76,11 @@ function Home() {
         description: "Error fetching courses",
         variant: "destructive",
       })
+    } finally {
+      setLoading(false)
     }
   },[])
+
 
   useEffect(() => {
     fetchCourses()
@@ -143,9 +121,7 @@ function Home() {
   
     setFilteredByTimeCourses(newFilteredByTimeCourses)
     
-  }, [selectedTime, filteredCourses]);
- 
-    
+  }, [selectedTime, filteredCourses]);   
 
   return (
    <main className=''>
@@ -155,7 +131,7 @@ function Home() {
     <Spacer className='h-[50px]'/>
 
     {/* Upper Tabbar with timing filter */}
-    <div className='w-full p-1' style={{ position: windowWidth > 1024 ? 'sticky' : 'static', top: 0, zIndex: 10 }}>
+    <div className='w-full p-1 sticky top-[30px] ' style={{ position: windowWidth > 1024 ? 'sticky' : 'static', top: 0, zIndex: 10 }} id='timebar'>
       <div className="flex gap-1  justify-between">
         {
           ['All','Live', 'Upcming', 'Bootcamp'].map(time => (
@@ -181,8 +157,8 @@ function Home() {
     </div>
 
     <div className='lg:flex  bg-blue-100 p-1'>
-    <div className='w-full lg:w-auto top-0 sticky z-10'>
-      <div className="flex lg:flex-col gap-1 lg:m-0 mb-5 justify-between" style={{ position: windowWidth > 1024 ? 'sticky' : 'static', top: 0, zIndex: 10 }}>
+    <div className='top-0 sticky z-10 bg-white p-1 lg:w-[250px] md:mr-5' id='sidebar'>
+      <div className="flex lg:flex-col gap-2 lg:m-0 mb-5 justify-between " style={{ position: windowWidth > 1024 ? 'sticky' : 'static', top: 0, zIndex: 10 }}>
         {
           ['All','Programming', 'JavaScript', 'Python'].map(category => (
             <Button 
@@ -206,79 +182,106 @@ function Home() {
     </div>
 
     {/* Main content area with course grid */}
-    <div className="w-full  overflow-x-scroll lg:overflow-x-auto">
-        <div className="lg:grid lg:grid-cols-3 flex  gap-3 justify-center">
-          {filteredByTimeCourses.map(course => (
-            <Card key={course.id} className='rounded-2xl bg-white max-w-sm ' >
-            <CardHeader className='w-full p-0 rounded-2xl' >
-              <Image
-                src={course.imageUrl}
-                alt='Loading Image...'
-                width={500}
-                height={200}
-                className=' w-full rounded-2xl -z-10'
-              >
-              </Image>
-    
-          </CardHeader>
-          <CardContent className='flex flex-col justify-start  pr-5 pl-5 mt-5 text-start font-bold'>
-    
-            <h1 className='text-3xl font-extrabold font-sans ml-2'>
-              {course.name}
-            </h1>
-            <p className='ml-2'>
-              {course.description} 
-            </p>
-    
-              <div className='flex flex-row justify-between items-center mt-2 ml-2'>
-                <p className='text-xs'>
-                  Instructor: {course.instructor}
-                </p>
-                
-              </div>
-    
-            <div className='flex justify-between  mb-2 rounded-2xl p-3 w-full'>
-    
-            <h2 className='font-bold font-sans text-2xl text-blue-700'>
-            &#8377;{course.price}
-              </h2>
-            <p className='text-center'>
-                {course.duration}
-            </p>
-            </div>
-    
-              <div className='flex flex-row justify-between p-1 mb-1'>
+    <div className="w-full  overflow-x-scroll lg:overflow-x-auto ">
+        <div className="lg:grid lg:grid-cols-3 flex  gap-3 justify-center w-fit lg:w-full">
           
-              <p className='text-xs'>
-                Starts On: {course.startDate.toString()}
-              </p>
-                <p className=' text-xs'>
-                  Ends On: {course.endDate.toString()}
+          {loading ? (
+            <div className='flex justify-center items-center'>
+              <CircularProgress color='success'/> 
+              <br />
+              <p>Loading Courses...</p>
+            </div>
+          ) : filteredByTimeCourses.length > 0 ? (
+            filteredByTimeCourses.map(course => (
+              <Card key={course.id} className='rounded-2xl bg-white lg:max-w-sm w-fit mt-3' >
+                <CardHeader className='w-full p-0 rounded-2xl' >
+                  <Image
+                    src={course.imageUrl}
+                    alt='Loading Image...'
+                    width={300}
+                    height={160}
+                    className=' w-full rounded-2xl '
+                  >
+                  </Image>
+    
+                </CardHeader>
+          
+              <CardContent className='flex flex-col justify-start  pr-5 pl-5 mt-5 text-start font-bold'>
+        
+                <h1 className='text-3xl font-extrabold font-sans ml-2'>
+                  {course.name}
+                </h1>
+                <p className='ml-2'>
+                  {course.description} 
                 </p>
-              </div>
-            
-    
-            <div className='flex flex-row justify-center mb-2 items-center'>
-                <Button className='bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white px-7 w-full'>
-                  Enroll Now
-                </Button>
-    
-    
+        
+                  <div className='flex flex-row justify-between items-center mt-2 ml-2'>
+                    <p className='text-xs'>
+                      {/* Instructor: {course.mentors[0]} */}
+                    </p>
+                    
+                  </div>
+        
+                <div className='flex justify-between  mb-2 rounded-2xl p-3 w-full'>
+        
+                <h2 className='font-bold font-sans text-2xl text-blue-700'>
+                &#8377;{course.price}
+                  </h2>
+                <p className='text-center'>
+                    {course.duration}
+                </p>
+                </div>
+        
+                  <div className='flex flex-row justify-between p-1 mb-1'>
+              
+                  <p className='text-xs'>
+                    Starts On: {course.startDate.toString()}
+                  </p>
+                    <p className=' text-xs'>
+                      Ends On: {course.endDate.toString()}
+                    </p>
+                  </div>  
+        
+                <div className='flex flex-row justify-between items-center'>
+                    <Button className='bg-transparent text-blue hover:text-white hover:bg-blue-500  px-8 py-1 border-blue-600 border-solid border-2 rounded-md font-sm'
+                    onClick={() => {
+                      router.push(`/courses?id=${course.id}`)
+                      toast({
+                        title: "Course " + course.name,
+                        description: "Navigating to course page",
+                        variant: "success"
+                      })
+                    }}
+                    >
+                      Explore
+                  </Button>
+                  <Button className='bg-gradient-to-r from-indigo-500  to-blue-500 text-white px-6'>
+                      Enroll Now
+                  </Button>
+                </div>
+              </CardContent>
+              
+            </Card> 
+            ))
+          ) : (
+            <div className='flex justify-center items-center flex-col text-lg bg-blue-300 w-full'>
+              <h1 className='text-blue-600 text-2xl font-bold  p-5 w-full'>
+                We are trying our Best to found Best Courses for you
+                </h1>
+              <p>but it seems, No courses were found</p>
+              <br />
+             
+              <p className='text-bold bg-blue-500 text-white font-bold p-3 rounded-md flex gap-2 bg-opacity-70'>
+              <Sparkle/> Try changing the filters
+              </p>
+
             </div>
-            <div className='flex flex-row justify-between items-center'>
-                <Button className='bg-transparent text-blue hover:text-white hover:bg-blue-500  px-8 py-1 border-blue-600 border-solid border-2 rounded-md font-sm'>
-                  Explore
-              </Button>
-              <Button className='bg-gradient-to-r from-indigo-500  to-blue-500 text-white px-6'>
-                  Share as Gift
-              </Button>
-            </div>
-          </CardContent>
-        </Card> 
-          ))}
+          )}
         </div>
     </div>
     </div>
+
+    <Partners/>
 
     <Footer/>
 
