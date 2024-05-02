@@ -124,29 +124,6 @@ function SignIn() {
                     className="space-y-6"
                 >
                     <div className="space-y-4">
-                    {/* <FormField
-                            control={form.control}
-                            name="username"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Username</FormLabel>
-                                    <FormControl>
-                                        <Input 
-                                            disabled={isSubmitting}
-                                            {...field}
-                                            placeholder="Abhinandan"
-                                            type="username"
-                                            onChange={(e) => {
-                                              field.onChange(e)
-                                              setUsername(e.target.value)
-                                            }}
-                                        />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        /> */}
-
                         <FormField
                             control={form.control}
                             name="email"

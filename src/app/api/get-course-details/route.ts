@@ -1,8 +1,6 @@
 import dbConnect from "@/lib/dbConnect";
 import { Course } from "@/model/Course";
 import CourseModel from "@/model/Course";
-import { useParams } from "next/navigation";
-import { useSearchParams } from 'next/navigation'
 
 export async function GET(request: Request){
 
@@ -18,6 +16,7 @@ export async function GET(request: Request){
             {
                 success: false,
                 message: "Course id not found",
+                course: null
             },
             { status: 404 }
         );
@@ -40,6 +39,7 @@ export async function GET(request: Request){
                 {
                     success: false,
                     message: "Course not found",
+                    course: null
                 },
                 { status: 404 }
             );
@@ -50,8 +50,10 @@ export async function GET(request: Request){
         return Response.json(
             {
                 success: true,
-                data: course
-            }
+                message: "Course found Successfully",
+                course: course,
+            },
+            { status: 200 }
         );
 
     } catch (error) {

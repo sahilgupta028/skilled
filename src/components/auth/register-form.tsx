@@ -4,8 +4,7 @@ import * as z from "zod"
 import { CardWrapper } from "./card-wrapper"
 import {useForm } from "react-hook-form"
 import { zodResolver} from "@hookform/resolvers/zod"
-import { useTransition, useState, use } from "react"
-import { RegisterSchema } from "@/schemas"
+import { useTransition, useState, } from "react"
 import { Input } from "@/components/ui/input"
 
 import {
@@ -21,6 +20,7 @@ import { Button } from "../ui/button"
 import { FormError } from "../form-error"
 import { FormSuccess } from "../form-success"
 import { register } from "@/actions/register"
+import { signUpSchema } from "@/schemas/signUpSchema"
 
 
 export const RegisterForm = () => {
@@ -29,15 +29,15 @@ export const RegisterForm = () => {
     const [success, setSuccess ] = useState<string | undefined>("");
 
 
-    const form = useForm<z.infer<typeof RegisterSchema>>({
-        resolver: zodResolver(RegisterSchema),
+    const form = useForm<z.infer<typeof signUpSchema>>({
+        resolver: zodResolver(signUpSchema),
         defaultValues: {
             email: "",
             password: ""
         }
     });
 
-    const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
+    const onSubmit = (values: z.infer<typeof signUpSchema>) => {
        setError("")
        setSuccess("")
 

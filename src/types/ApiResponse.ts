@@ -7,4 +7,5 @@ export interface ApiResponse {
     isAcceptingMessage? : boolean;
     messages?: Message[];
     courses?: Course[];
+    course?: Course;
 }
