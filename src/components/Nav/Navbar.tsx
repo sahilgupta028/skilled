@@ -1,16 +1,12 @@
+"use client";
+
 import React from "react";
 import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu, dropdown, extendVariants} from "@nextui-org/react";
 import Image from "next/image";
 import { ChevronDown, Heading1 } from "lucide-react";
 
 
-export const MyDropDown = extendVariants(Dropdown, {
-  variants:{
-    color: {
-      
-    },
-  }
-})
+
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
