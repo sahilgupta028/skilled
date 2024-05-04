@@ -19,7 +19,6 @@ import {
 import { Button } from "../ui/button"
 import { FormError } from "../form-error"
 import { FormSuccess } from "../form-success"
-import { register } from "@/actions/register"
 import { signUpSchema } from "@/schemas/signUpSchema"
 
 
@@ -42,13 +41,7 @@ export const RegisterForm = () => {
        setSuccess("")
 
        //axios.post("/your/api/route", values)
-       startTransition(() => {
-        register(values)
-        .then((data) => {
-            setError(data.error)
-            setSuccess(data.success)
-        })
-       })
+      
     }
 
     return (
