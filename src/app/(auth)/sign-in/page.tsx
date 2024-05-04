@@ -115,7 +115,7 @@ function SignIn() {
     <CardWrapper 
         headerLabel="Sign In"
         backButtonLabel="Don't have an account?"
-        backButtonHref="/auth/register"
+        backButtonHref="/register"
         showSocial={true}
        >
             <Form {...form}>
