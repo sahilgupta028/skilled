@@ -1,4 +1,6 @@
 import mongoose, {Schema, Document} from "mongoose"
+import { Course } from "./Course";
+import { CourseSchema } from "@/app/(app)/courses/CourseSchema";
 
 export interface Message extends Document{
     content: string;
@@ -26,7 +28,11 @@ export interface User extends Document{
     verifyCodeExpiry: Date;
     isVerified: boolean;
     isAcceptingMessage: boolean,
-    messages: Message[]
+    messages: Message[],
+    courses: [
+        name: string,
+        courseId: string
+    ]
 }
 
 const UserSchema: Schema<User> = new Schema({
@@ -63,6 +69,19 @@ const UserSchema: Schema<User> = new Schema({
     },
     messages: [
         MessageSchema
+    ],
+    courses: [
+        {
+            name: {
+                type: String,
+                required: true
+            },
+            courseId: {
+                type: Schema.Types.ObjectId,
+                ref: "Course",
+                required: true
+            }
+        }
     ]
 })
 
