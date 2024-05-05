@@ -47,10 +47,10 @@ function Dashboard() {
   const fetchAcceptMessage = useCallback(async () => {
     setLoading(true)
     try {
-      const response = await axios.get<ApiResponse>('/api/accept-messages')
-      if (response.data.isAcceptingMessage !== undefined) {
-        setValue('isAcceptingMessages', response.data.isAcceptingMessage)
-      }
+      // const response = await axios.get<ApiResponse>('/api/accept-messages')
+      // if (response.data.isAcceptingMessage !== undefined) {
+      //   setValue('isAcceptingMessages', response.data.isAcceptingMessage)
+      // }
 
     } catch (error) {
       console.log("error: ", error)
@@ -72,17 +72,17 @@ function Dashboard() {
     setIsSwitchLoading(true)
     try {
       
-      const response = await axios.get<ApiResponse>('/api/get-messages')
+      // const response = await axios.get<ApiResponse>('/api/get-messages')
 
-      setMessages(response.data.messages || [])
+      // setMessages(response.data.messages || [])
 
-      if(refresh){
-        toast({
-          title: "Messages refreshed",
-          description: "Showing latest messages",
-          variant: "default"
-        })
-      }
+      // if(refresh){
+      //   toast({
+      //     title: "Messages refreshed",
+      //     description: "Showing latest messages",
+      //     variant: "default"
+      //   })
+     // }
     } catch (error) {
       
       console.log("error: ", error)
@@ -143,7 +143,11 @@ function Dashboard() {
 
   session?.user && console.log("session user ", session.user)
 
-  const {username } = session?.user as User || {}
+  const { username } = session?.user as User || {}
+  console.log("username ", username)
+  const { email } = session?.user as User || {}  
+  console.log("email ", email)
+
   // TODO: do more research on this
   const baseUrl = `${window.location.protocol}//${window.location.host}`
   const profileUrl = `${baseUrl}/u/${username}`
@@ -185,7 +189,7 @@ function Dashboard() {
     
     <div>
 
-    <h1 className="text-4xl font-bold mb-4">User Dashboard</h1>
+    {/* <h1 className="text-4xl font-bold mb-4">User Dashboard</h1>
       
       <div className="mb-4">
         <h2 className="text-lg font-semibold mb-2">Copy Your Unique Link</h2>{' '}
@@ -240,7 +244,16 @@ function Dashboard() {
         ) : (
           <p>No messages to display.</p>
         )}
-      </div>
+      </div> */}
+
+      DashBoard
+
+      <h1>
+        Welcome {username}
+      </h1>
+      <h2>
+        Email: {email}
+      </h2>
     </div>
   )
 }
