@@ -8,8 +8,8 @@ function page() {
   return (
     <div>
     {/* <Nav/> */}
-    <div className="flex flex-row items-center justify-center mt-10 gap-10">
-      <div className=" bg-gradient-to-r from-blue-400 to-blue-900 text-white py-5 px-96 text-4xl font-bold text-center absolute top-16 underline decoration-2 underline-offset-8">
+    <div className="flex flex-row items-center justify-center mt-16 gap-10">
+      <div className=" bg-gradient-to-r from-blue-400 to-blue-900 text-white py-11 w-full text-4xl font-bold text-center absolute top-0 underline decoration-2 underline-offset-8">
         Contact Us
       </div>
     <div className='my-12'>

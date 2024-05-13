@@ -1,6 +1,6 @@
 import React from 'react'
 
-function page() {
+function FaQs() {
   return (
     <div>
       <div className=" bg-gradient-to-r from-blue-400 to-blue-900 text-white text-center p-10 text-6xl underline decoration-2 underline-offset-8">
@@ -116,4 +116,4 @@ function page() {
   )
 }
 
-export default page
+export default FaQs

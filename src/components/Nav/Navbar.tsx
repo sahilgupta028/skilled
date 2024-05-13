@@ -182,6 +182,16 @@ export default function Nav() {
             >
              Contact Us
             </DropdownItem>
+
+            <DropdownItem
+              key="99_uptime"
+              // description="Applications stay on the grid with high availability and high uptime guarantees."
+              className="hover:bg-blue-100 hover:text-black p-2 rounded-lg"
+              href="/faq"
+              //startContent={icons.server}
+            >
+              FAQ's
+            </DropdownItem>
             <DropdownItem
               key="ml"
               // description="Machine Learning"
@@ -191,24 +201,8 @@ export default function Nav() {
             >
               Terms & Conditions
             </DropdownItem>
-            <DropdownItem
-              key="99_uptime"
-              // description="Applications stay on the grid with high availability and high uptime guarantees."
-              className="hover:bg-blue-100 hover:text-black p-2 rounded-lg"
-              href="/faq"
-              //startContent={icons.server}
-            >
-              FAQs
-            </DropdownItem>
-            <DropdownItem
-              key="99_uptime"
-              // description="Applications stay on the grid with high availability and high uptime guarantees."
-              className="hover:bg-blue-100 hover:text-black p-2 rounded-lg"
-              href="/cerificate"
-              //startContent={icons.server}
-            >
-              Certificate
-            </DropdownItem>
+           
+           
             <DropdownItem
               key="supreme_support"
               // description="Overcome any challenge with a supporting team ready to respond."
@@ -217,6 +211,15 @@ export default function Nav() {
               //startContent={icons.user}
             >
               Privacy & Policy
+            </DropdownItem>
+            <DropdownItem
+              key="#"
+              // description="Applications stay on the grid with high availability and high uptime guarantees."
+              className="hover:bg-blue-100 hover:text-black p-2 rounded-lg"
+              href="/certificate"
+              //startContent={icons.server}
+            >
+              Certificate
             </DropdownItem>
           </DropdownMenu>
         </Dropdown>
