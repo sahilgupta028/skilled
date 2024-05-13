@@ -26,7 +26,6 @@ import {
 import { Button } from "@/components/ui/button"
 import { FormError } from '@/components/form-error'
 import { FormSuccess } from '@/components/form-success'
-import { register } from "@/actions/register"
 import { Input } from '@/components/ui/input'
 import { Loader2 } from 'lucide-react';
 
@@ -59,10 +58,10 @@ export default function Register() {
 
     useEffect(() => {
       const checkUsernameUnique = async () => {
-        if (username) {
+        if (username !== '') {
           setIsCheckingUsername(true)
           setUsernameMessage('')
-        }
+        
 
         try {
           const response = await axios.get(`/api/check-username-unique?username=${username}`)
@@ -87,6 +86,9 @@ export default function Register() {
         finally{
           setIsCheckingUsername(false)
         }
+      }
+
+        
       };
       checkUsernameUnique()
       
@@ -147,7 +149,7 @@ export default function Register() {
     <CardWrapper 
         headerLabel="Create an Account"
         backButtonLabel="Already have an account?"
-        backButtonHref="/auth/login"
+        backButtonHref="/sign-in"
         showSocial={true}
        >
             <Form {...form}>
@@ -225,7 +227,7 @@ export default function Register() {
                     <FormError  message={error}/>
                     <FormSuccess message={success}/>
                     <Button
-                    className="w-full"
+                    className="w-full bg-blue-600 text-white hover:bg-blue-800"
                     type="submit"
                     disabled={isSubmitting}
                     >
