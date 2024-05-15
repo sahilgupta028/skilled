@@ -5,7 +5,7 @@ import AuthProvider from "@/context/AuthProvider";
 import { Toaster } from "@/components/ui/toaster"
 import Nav from "@/components/Nav/Navbar";
 import Footer from "@/components/Footer";
-import Script from "next/script";
+
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -30,6 +30,7 @@ export default function RootLayout({
             {/* <Providers> */}
 
               {/* <Nav/> */}
+              <Nav/>
             
               {children}
             

@@ -22,7 +22,6 @@ import DetailSection from '@/components/DetailSection';
 import Achiever from '@/components/Achiever';
 import Support from '@/components/Support';
 import Mentor from '@/components/Mentor';
-import Pages from './pages';
 import { Testimonial } from '@/components/Testimonial';
 
 
@@ -132,7 +131,7 @@ function Home() {
 
   return (
    <main className=''>
-     <Nav/>
+     
     <HeroSection/>
     <DetailSection/>
 
