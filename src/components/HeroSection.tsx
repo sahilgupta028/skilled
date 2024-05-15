@@ -59,29 +59,24 @@ function HeroSection() {
               width={500}
               height={500}
             />
-            <Image className=' absolute top-45 right-50 bottom-0'
+            <Image className=' absolute top-45 right-50 bottom-0 hidden md:block'
               src={bannerstar}
               alt='banner-star'
             />
-            <Image className=' absolute top-36 right-56 bottom-0'
+            <Image className=' absolute top-36 right-56 bottom-0 hidden md:block'
               src={bannermap}
               alt='banner-star'
             />
-            <Image className=' absolute top-60 right-62 bottom-0'
+            <Image className=' absolute top-60 right-62 bottom-0 hidden md:block'
               src={bannercap}
               alt='banner-cap'
             />
-            <Image className=' absolute top-40 right-1/3 bottom-0'
+            <Image className=' absolute top-40 right-1/3 bottom-0 hidden md:block'
               src={bannstar}
               alt='banner-star'
             />
-            <Link href="/" className=' top-1/2 right-1/4 bottom-0 text-white text-2xl '><FontAwesomeIcon icon={faPlay} /> {' '}</Link>
-            <Image className='absolute top-60 right-32 bottom-0'
-
-              src={bannervideo}
-              alt='banner-video'
-            />
-            <Image className='absolute top-260 right-40 bottom-0 '
+            
+            <Image className='absolute top-260 right-40 bottom-0 hidden md:block'
               src={bannerbook}
               alt='banner-book'
             />

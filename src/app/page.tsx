@@ -23,6 +23,7 @@ import Achiever from '@/components/Achiever';
 import Support from '@/components/Support';
 import Mentor from '@/components/Mentor';
 import Pages from './pages';
+import { Testimonial } from '@/components/Testimonial';
 
 
 
@@ -294,7 +295,7 @@ function Home() {
     <Mentor/>
     
     <Achiever/>
-    <Pages/>
+    <Testimonial/>
 
     <Footer/>
 

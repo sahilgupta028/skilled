@@ -66,8 +66,8 @@ function Achiever() {
     ))}
     </div>
 
-    <div className=' flex  flex-row justify-center items-center gap-5'>
-       <div className='flex  z-30 card border rounded-xl py-3 w-1/4  bg-blue-300 '>
+    <div className=' flex  flex-col md:flex-row justify-center items-center gap-5 '>
+       <div className='flex  z-30 card border rounded-xl py-3 md:w-1/4 w-2/3  bg-blue-300 '>
        <Image className='bg-white rounded-lg border m-3 p-1 text-start '
        src={diagram}
        alt="diagram" 
@@ -79,7 +79,7 @@ function Achiever() {
        <p className='text-md text-400 text-gray-600 '>Average salary Hike</p>
        </div>
        </div>
-       <div className='flex  z-30 card border rounded-xl py-3 w-1/4 bg-yellow-300'>
+       <div className='flex  z-30 card border rounded-xl py-3 md:w-1/4 w-2/3  bg-yellow-300'>
        <Image className='bg-white rounded-lg border m-3 P-1 text-start '
        src={salary}
        alt="salary" 
@@ -92,7 +92,7 @@ function Achiever() {
        </div>
        </div>
       
-       <div className='flex  z-30 card border rounded-xl py-3 w-1/4 bg-green-300'>
+       <div className='flex  z-30 card border rounded-xl py-3 md:w-1/4 w-2/3  bg-green-300'>
        <Image className='bg-white rounded-lg border m-3 p-1 text-start '
        src={repost}
        alt="repost" 
@@ -104,7 +104,7 @@ function Achiever() {
        <p className='text-md  text-gray-600 '>Career Transforms</p>
        </div>
        </div>
-       <div className='flex  z-30 card border rounded-xl bg-orange-300 py-3 w-1/4'>
+       <div className='flex  z-30 card border rounded-xl bg-orange-300 py-3 md:w-1/4 w-2/3 '>
        <Image  className='bg-white rounded-lg border m-3 text-start '
        src={job}
        alt="job" 

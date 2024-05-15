@@ -12,7 +12,7 @@ import supportbg from '../assets/support-bg-1.png'
 function Support() {
   return (
     <div>
-        <div className='relative bg-blue-900 w-full py-52 my-5'>
+        <div className='relative bg-blue-900 w-full py-52 my-5 lg:grid flex items-center justify-center  '>
             <Image
             src={ctaicon}
             alt='ctaicon'
@@ -26,7 +26,7 @@ function Support() {
             alt='ctalogo'
             />
             <Image  
-            className=' absolute top-52 left-1/4'
+            className=' absolute top-52 lg:left-1/4 right-32'
             src={bannershape}
             alt='bannershape'
             />
@@ -47,7 +47,7 @@ function Support() {
             >Get Connected Now</Button>
 
             </div>
-            <Image  className=' absolute right-24  top-8 bottom-0 bg-orange-500 rounded-full p-5 '
+            <Image  className=' absolute right-24  top-8 bottom-0 bg-orange-500 rounded-full p-5  hidden md:block'
             src={ctaimg}
             alt='cta1'
             width={350}
